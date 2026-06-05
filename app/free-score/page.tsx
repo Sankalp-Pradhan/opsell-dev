@@ -545,13 +545,6 @@ export default function FreeScorePage() {
             className="w-full max-w-[720px] rounded-3xl bg-white p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Logo */}
-            <div className="flex justify-center mb-6">
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded-lg bg-brand" />
-                <span className="font-display text-2xl font-bold">opsell</span>
-              </div>
-            </div>
 
             {/* Heading */}
             <h2 className="text-center text-4xl font-bold text-n-900">
