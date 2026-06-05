@@ -263,16 +263,17 @@ export default function FreeScorePage() {
       if (!pendingUrl) return;
 
       try {
-        const response = await fetch("http://localhost:8000/analyze", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            mode: "url",
-            url: pendingUrl,
-          }),
-        });
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              mode: "url",
+              url: pendingUrl,
+            }),
+          });
 
         if (!response.ok) {
           throw new Error("Failed to analyze listing");
@@ -587,7 +588,7 @@ export default function FreeScorePage() {
               Connect my Amazon account
             </button>
 
-         
+
             {/* Footer */}
             <div className="mt-8 border-t pt-5">
               <div className="flex justify-center gap-8 text-sm text-n-400">
