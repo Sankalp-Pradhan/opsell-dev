@@ -490,19 +490,18 @@ export default function OpsellDashboard() {
                 marginBottom: 4,
               }}
             >
-              Good morning, Ravi
+              Good morning, Seller
             </h2>
-            <p style={{ fontSize: 13.5, color: "#6B707A" }}>
-              Glow Theory · connect a marketplace to bring this workspace to life
-            </p>
+          
           </div>
 
           {/* Stat cards */}
           <div style={{ display: "flex", gap: 14, marginBottom: 20 }}>
-            <StatCard value="$742.80" label="Total Revenue" trend="+12.4% vs last week" />
             <StatCard locked />
-            <StatCard value="$1.28" label="Avg. Price" trend="+0.8%" />
-            <StatCard value="$4.09" label="Avg. CPC" trend="-5.1%" />
+            <StatCard locked />
+            <StatCard locked />
+            <StatCard locked />
+     
           </div>
 
           {/* Lower panels */}
