@@ -10,10 +10,10 @@ function OpsellLogo() {
       <div className="relative w-9 h-9 shrink-0">
         <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
           <circle cx="18" cy="18" r="14" stroke="#5046E5" strokeWidth="2.5" />
-          <circle cx="18" cy="18" r="7"  stroke="#5046E5" strokeWidth="2" strokeDasharray="4 2" />
-          <circle cx="18" cy="6"  r="3"  fill="#5046E5" />
-          <circle cx="28" cy="24" r="2"  fill="#7B73FF" />
-          <circle cx="8"  cy="24" r="2"  fill="#7B73FF" />
+          <circle cx="18" cy="18" r="7" stroke="#5046E5" strokeWidth="2" strokeDasharray="4 2" />
+          <circle cx="18" cy="6" r="3" fill="#5046E5" />
+          <circle cx="28" cy="24" r="2" fill="#7B73FF" />
+          <circle cx="8" cy="24" r="2" fill="#7B73FF" />
         </svg>
       </div>
       {/* Logo: ~18px, bold */}
@@ -33,19 +33,16 @@ function Hamburger({ open, onClick }: { open: boolean; onClick: () => void }) {
       aria-label="Toggle menu"
     >
       <span
-        className={`block h-[2px] w-5 bg-[#2E3238] rounded-full transition-all duration-200 ${
-          open ? "rotate-45 translate-y-[7px]" : ""
-        }`}
+        className={`block h-[2px] w-5 bg-[#2E3238] rounded-full transition-all duration-200 ${open ? "rotate-45 translate-y-[7px]" : ""
+          }`}
       />
       <span
-        className={`block h-[2px] w-5 bg-[#2E3238] rounded-full transition-all duration-200 ${
-          open ? "opacity-0" : ""
-        }`}
+        className={`block h-[2px] w-5 bg-[#2E3238] rounded-full transition-all duration-200 ${open ? "opacity-0" : ""
+          }`}
       />
       <span
-        className={`block h-[2px] w-5 bg-[#2E3238] rounded-full transition-all duration-200 ${
-          open ? "-rotate-45 -translate-y-[7px]" : ""
-        }`}
+        className={`block h-[2px] w-5 bg-[#2E3238] rounded-full transition-all duration-200 ${open ? "-rotate-45 -translate-y-[7px]" : ""
+          }`}
       />
     </button>
   );
@@ -67,11 +64,10 @@ function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
-          scrolled || menuOpen
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${scrolled || menuOpen
             ? "bg-white/95 backdrop-blur-md border-b border-[#E2E4E8] shadow-[0_1px_2px_rgba(15,17,20,0.06)]"
             : "bg-white/80 backdrop-blur-sm"
-        }`}
+          }`}
       >
         <nav className="max-w-[1152px] mx-auto px-4 sm:px-6 h-[64px] flex items-center justify-between gap-4">
           <OpsellLogo />
@@ -102,9 +98,8 @@ function Navbar() {
 
         {/* Mobile drawer */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-200 ${
-            menuOpen ? "max-h-[400px] border-t border-[#E2E4E8]" : "max-h-0"
-          }`}
+          className={`md:hidden overflow-hidden transition-all duration-200 ${menuOpen ? "max-h-[400px] border-t border-[#E2E4E8]" : "max-h-0"
+            }`}
         >
           <div className="px-4 py-3 flex flex-col gap-1 bg-white">
             {NAV_LINKS.map((label) => (
@@ -161,36 +156,40 @@ function UrlCard() {
   const inputRef = useRef<HTMLInputElement>(null);
 
 
-// const handleSubmit = () => {
-//   if (!url.trim()) {
-//     toast.error("Please enter the Amazon URL");
-//     inputRef.current?.focus();
-//     return;
-//   }
+  // const handleSubmit = () => {
+  //   if (!url.trim()) {
+  //     toast.error("Please enter the Amazon URL");
+  //     inputRef.current?.focus();
+  //     return;
+  //   }
 
-//   setLoading(true);
+  //   setLoading(true);
 
-//   setTimeout(() => {
-//     setLoading(false);
-//     toast.success("Listing scored successfully!");
-//   }, 2200);
-// };
-const handleSubmit = async () => {
-  if (!url.trim()) {
-    toast.error("Please enter the Amazon URL");
-    inputRef.current?.focus();
-    return;
-  }
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //     toast.success("Listing scored successfully!");
+  //   }, 2200);
+  // };
+  const handleSubmit = async () => {
+    if (!url.trim()) {
+      toast.error("Please enter the Amazon URL");
+      inputRef.current?.focus();
+      return;
+    }
 
-  // Save URL for after signup/login
-  localStorage.setItem("pendingAmazonUrl", url);
+    // // Save URL for after signup/login
+    // localStorage.setItem("pendingAmazonUrl", url);
 
-  // Redirect to signup page
-  window.location.href = "/sign-up";
-}; 
+    // // Redirect to signup page
+    // window.location.href = "/sign-up";
 
- 
-return (
+    localStorage.removeItem("opsellResult");
+    localStorage.setItem("pendingAmazonUrl", url);
+    window.location.href = "/sign-up";
+  };
+
+
+  return (
     /* Card matches image: light grey bg, subtle border, generous padding */
     <div
       className="w-full max-w-[1000px] bg-[#F8F9FA] border border-[#E2E4E8] rounded-2xl p-4 sm:p-5 shadow-[0_2px_8px_rgba(15,17,20,0.08),0_1px_2px_rgba(15,17,20,0.04)] animate-[fadeUp_0.5s_ease_both]"
@@ -241,9 +240,9 @@ return (
 
 // ── Score badges ──────────────────────────────────────────────────────────────
 const BADGES = [
-  { key: "A9",    label: "Amazon ranking",  bg: "#5046E5" },
+  { key: "A9", label: "Amazon ranking", bg: "#5046E5" },
   { key: "Rufus", label: "AI buyer intent", bg: "#5046E5" },
-  { key: "LQS",   label: "Listing quality", bg: "#3B32C4" },
+  { key: "LQS", label: "Listing quality", bg: "#3B32C4" },
 ];
 
 function ScoreBadges() {

@@ -257,7 +257,6 @@ export default function FreeScorePage() {
         return;
       }
 
-      // URL saved before signup
       const pendingUrl = localStorage.getItem("pendingAmazonUrl");
 
       if (!pendingUrl) return;
