@@ -275,9 +275,12 @@ export default function FreeScorePage() {
           });
 
         if (!response.ok) {
-          throw new Error("Failed to analyze listing");
+          const err = await response.text();
+          console.error("Backend Error:", err);
+          alert(err);
+          throw new Error(err);
         }
-
+        
         const result = await response.json();
 
         localStorage.setItem("opsellResult", JSON.stringify(result));

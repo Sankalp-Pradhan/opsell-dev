@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import {
   Plus_Jakarta_Sans,
   DM_Sans,
-  JetBrains_Mono, Geist } from "next/font/google";
+  JetBrains_Mono, Geist
+} from "next/font/google";
 
 import "./globals.css";
 
@@ -12,8 +13,9 @@ import Footer from "./components/footer";
 import Script from "next/script";
 import Providers from "@/providers";
 import { cn } from "@/lib/utils";
+import LayoutWrapper from "./components/layout";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-display",
@@ -132,7 +134,10 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
+
 }) {
+
+
   return (
     <html
       lang="en"
@@ -140,21 +145,18 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <Providers>
-      <body className="min-h-screen flex flex-col antialiased bg-white text-n-900 font-body">
-        <Navbar />
+        <body className="min-h-screen flex flex-col antialiased bg-white text-n-900 font-body">
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
+          {/* Google Analytics */}
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            strategy="afterInteractive"
+          />
 
-        <main className="flex-1">{children}</main>
-
-        <Footer />
-        
-        {/* Google Analytics */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
     window.dataLayer = window.dataLayer || [];
 
     function gtag(){
@@ -167,8 +169,8 @@ export default function RootLayout({
 
     gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
   `}
-        </Script>
-      </body>
+          </Script>
+        </body>
       </Providers>
     </html>
   );
