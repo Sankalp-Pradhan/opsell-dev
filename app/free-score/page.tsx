@@ -601,6 +601,8 @@
 // }
 
 
+
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -934,52 +936,122 @@ function CompetitorTable({ scores }: { scores: Record<string, any> }) {
   );
 }
 
+// ── Error screen ──────────────────────────────────────────────────────────────
+function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => void }) {
+  // Parse JSON error message if possible
+  let friendlyMessage = message;
+  try {
+    const parsed = JSON.parse(message);
+    if (parsed?.detail) friendlyMessage = parsed.detail;
+  } catch {
+    // use raw message
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-n-50 font-body px-6">
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(#EF4444 1px, transparent 1px), linear-gradient(90deg, #EF4444 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+      <div className="relative z-10 flex flex-col items-center text-center max-w-sm w-full">
+        {/* Icon */}
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-error-light mb-5">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </div>
+
+        {/* Heading */}
+        <h2 className="font-display text-[22px] font-bold text-n-900 mb-2">
+          Couldn't score this listing
+        </h2>
+
+        {/* Message */}
+        <p className="font-body text-ds-body-sm text-n-500 mb-6 leading-relaxed">
+          {friendlyMessage}
+        </p>
+
+        {/* Actions */}
+        <div className="flex flex-col gap-3 w-full">
+          <button
+            onClick={onRetry}
+            className="w-full rounded-lg bg-brand py-3 font-display font-semibold text-ds-body text-white hover:bg-brand-dark transition-colors"
+          >
+            Try a different listing
+          </button>
+          <button
+            onClick={() => window.location.reload()}
+            className="w-full rounded-lg border border-n-border bg-white py-3 font-body text-ds-body text-n-600 hover:bg-n-50 transition-colors"
+          >
+            Retry
+          </button>
+        </div>
+
+        <p className="mt-6 font-body text-ds-caption text-n-300">
+          If this keeps happening, the ASIN may not be available on amazon.in
+        </p>
+      </div>
+    </div>
+  );
+}
+
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function FreeScorePage() {
   const [data, setData] = useState<any>(null);
   const [isFetching, setIsFetching] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showFixModal, setShowFixModal] = useState(false);
 
+  const loadData = async () => {
+    setError(null);
+    setIsFetching(true);
+
+    const existingResult = localStorage.getItem("opsellResult");
+    if (existingResult) {
+      setData(JSON.parse(existingResult));
+      setIsFetching(false);
+      return;
+    }
+
+    const pendingUrl = localStorage.getItem("pendingAmazonUrl");
+    if (!pendingUrl) {
+      setIsFetching(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "url", url: pendingUrl }),
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        console.error("Backend Error:", err);
+        setError(err);
+        return;
+      }
+
+      const result = await response.json();
+      localStorage.setItem("opsellResult", JSON.stringify(result));
+      localStorage.removeItem("pendingAmazonUrl");
+      setData(result);
+    } catch (err: any) {
+      console.error(err);
+      setError(err?.message ?? "Something went wrong. Please try again.");
+    } finally {
+      setIsFetching(false);
+    }
+  };
+
   useEffect(() => {
-    const loadData = async () => {
-      const existingResult = localStorage.getItem("opsellResult");
-      if (existingResult) {
-        setData(JSON.parse(existingResult));
-        setIsFetching(false);
-        return;
-      }
-
-      const pendingUrl = localStorage.getItem("pendingAmazonUrl");
-      if (!pendingUrl) {
-        setIsFetching(false);
-        return;
-      }
-
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ mode: "url", url: pendingUrl }),
-        });
-
-        if (!response.ok) {
-          const err = await response.text();
-          console.error("Backend Error:", err);
-          alert(err);
-          throw new Error(err);
-        }
-
-        const result = await response.json();
-        localStorage.setItem("opsellResult", JSON.stringify(result));
-        localStorage.removeItem("pendingAmazonUrl");
-        setData(result);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsFetching(false);
-      }
-    };
-
     loadData();
   }, []);
 
@@ -997,6 +1069,18 @@ export default function FreeScorePage() {
 
   // Show full-page loader while fetching
   if (isFetching) return <FullPageLoader />;
+
+  // Show error screen if fetch failed
+  if (error) return (
+    <ErrorScreen
+      message={error}
+      onRetry={() => {
+        localStorage.removeItem("opsellResult");
+        localStorage.removeItem("pendingAmazonUrl");
+        window.location.href = "/";
+      }}
+    />
+  );
 
   const isLoading = !data;
 
