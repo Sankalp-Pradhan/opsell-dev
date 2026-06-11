@@ -1,3 +1,4 @@
+
 // "use client";
 
 // import { useState, useEffect } from "react";
@@ -43,9 +44,9 @@
 //         }}
 //       />
 
-//       <div className="relative z-10 flex flex-col items-center w-full max-w-md px-6">
+//       <div className="relative z-10 flex flex-col items-center w-full max-w-md px-4 sm:px-6">
 //         {/* Animated logo mark */}
-//         <div className="mb-8 flex items-center gap-1">
+//         <div className="mb-6 sm:mb-8 flex items-center gap-1">
 //           <div className="relative flex h-10 w-10 items-center justify-center">
 //             <span className="absolute inline-flex h-full w-full rounded-full bg-brand opacity-20 animate-ping" />
 //             <span className="relative flex h-8 w-8 rounded-full bg-brand items-center justify-center">
@@ -60,15 +61,15 @@
 //         </div>
 
 //         {/* Headline */}
-//         <h2 className="font-display text-[22px] font-bold text-n-900 text-center mb-1">
+//         <h2 className="font-display text-xl sm:text-[22px] font-bold text-n-900 text-center mb-1">
 //           Scoring your listing
 //         </h2>
-//         <p className="font-body text-ds-body-sm text-n-400 text-center mb-8">
+//         <p className="font-body text-ds-body-sm text-n-400 text-center mb-6 sm:mb-8">
 //           This takes about 10–15 seconds
 //         </p>
 
 //         {/* Progress bar */}
-//         <div className="w-full h-1.5 rounded-full bg-n-200 mb-6 overflow-hidden">
+//         <div className="w-full h-1.5 rounded-full bg-n-200 mb-5 sm:mb-6 overflow-hidden">
 //           <div
 //             className="h-full rounded-full bg-brand transition-all duration-700 ease-out"
 //             style={{ width: `${progress}%` }}
@@ -76,20 +77,19 @@
 //         </div>
 
 //         {/* Steps */}
-//         <div className="w-full flex flex-col gap-2.5">
+//         <div className="w-full flex flex-col gap-2 sm:gap-2.5">
 //           {LOADER_STEPS.map((step, i) => {
 //             const isDone = completedSteps.includes(i);
 //             const isActive = i === currentStep;
 //             return (
 //               <div
 //                 key={i}
-//                 className={`flex items-center gap-3 px-4 py-3 rounded-lg border transition-all duration-300 ${
-//                   isDone
-//                     ? "border-success/20 bg-success-light"
-//                     : isActive
+//                 className={`flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border transition-all duration-300 ${isDone
+//                   ? "border-success/20 bg-success-light"
+//                   : isActive
 //                     ? "border-brand/30 bg-brand-light"
 //                     : "border-transparent bg-transparent opacity-40"
-//                 }`}
+//                   }`}
 //               >
 //                 {/* Icon */}
 //                 <span className="shrink-0 flex h-5 w-5 items-center justify-center">
@@ -106,13 +106,12 @@
 
 //                 {/* Label */}
 //                 <span
-//                   className={`font-body text-ds-body-sm ${
-//                     isDone
-//                       ? "text-success font-medium"
-//                       : isActive
+//                   className={`font-body text-ds-body-sm ${isDone
+//                     ? "text-success font-medium"
+//                     : isActive
 //                       ? "text-brand font-semibold"
 //                       : "text-n-400"
-//                   }`}
+//                     }`}
 //                 >
 //                   {step.label}
 //                 </span>
@@ -122,7 +121,7 @@
 //         </div>
 
 //         {/* Footer note */}
-//         <p className="mt-8 font-body text-ds-caption text-n-300 text-center">
+//         <p className="mt-6 sm:mt-8 font-body text-ds-caption text-n-300 text-center">
 //           Powered by Opsell AI · No data stored without consent
 //         </p>
 //       </div>
@@ -149,7 +148,7 @@
 
 // function GaugeSkeleton() {
 //   return (
-//     <div className="flex-1 flex flex-col items-center gap-2 px-6 py-4 bg-white rounded-lg border border-n-border shadow-elev-1">
+//     <div className="flex-1 flex flex-col items-center gap-2 px-4 sm:px-6 py-4 bg-white rounded-lg border border-n-border shadow-elev-1">
 //       <Skeleton className="w-[72px] h-[40px]" />
 //       <Skeleton className="w-16 h-4 mt-1" />
 //       <Skeleton className="w-20 h-3" />
@@ -159,7 +158,7 @@
 
 // function FindingSkeleton() {
 //   return (
-//     <div className="flex items-start justify-between gap-4 rounded-lg border border-n-border bg-white px-5 py-4 shadow-elev-1">
+//     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 rounded-lg border border-n-border bg-white px-4 sm:px-5 py-4 shadow-elev-1">
 //       <div className="flex items-start gap-3 flex-1">
 //         <Skeleton className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full" />
 //         <div className="flex-1 flex flex-col gap-2">
@@ -168,20 +167,20 @@
 //           <Skeleton className="h-3 w-3/4" />
 //         </div>
 //       </div>
-//       <Skeleton className="h-6 w-24 rounded-full" />
+//       <Skeleton className="h-6 w-24 rounded-full self-start" />
 //     </div>
 //   );
 // }
 
 // function FixRowSkeleton() {
 //   return (
-//     <div className="w-full rounded-lg border border-n-border bg-white px-5 py-4 shadow-elev-1 overflow-hidden">
+//     <div className="w-full rounded-lg border border-n-border bg-white px-4 sm:px-5 py-4 shadow-elev-1 overflow-hidden">
 //       <div className="flex items-center justify-between mb-3 gap-4">
 //         <div className="flex items-center gap-3 flex-1 min-w-0">
 //           <Skeleton className="w-5 h-3 shrink-0" />
 //           <Skeleton className="h-4 flex-1 max-w-[250px]" />
 //         </div>
-//         <Skeleton className="w-20 h-3 shrink-0" />
+//         <Skeleton className="w-16 sm:w-20 h-3 shrink-0" />
 //       </div>
 //       <Skeleton className="h-1.5 w-full" />
 //     </div>
@@ -196,7 +195,7 @@
 //   const color = clamped >= 70 ? "#16A34A" : clamped >= 40 ? "#F59E0B" : "#EF4444";
 
 //   return (
-//     <div className="flex-1 flex flex-col items-center gap-1 px-6 py-4 bg-white rounded-lg border border-n-border shadow-elev-1">
+//     <div className="flex-1 flex flex-col items-center gap-1 px-3 sm:px-6 py-3 sm:py-4 bg-white rounded-lg border border-n-border shadow-elev-1 min-w-0">
 //       <div className="relative w-[72px] h-[40px] overflow-visible">
 //         <svg width="72" height="44" viewBox="0 0 72 44" fill="none" className="overflow-visible">
 //           <path d="M 8 36 A 28 28 0 0 1 64 36" stroke="#E2E4E8" strokeWidth="5" strokeLinecap="round" fill="none" />
@@ -219,7 +218,7 @@
 //         </span>
 //       </div>
 //       <p className="font-display font-semibold text-ds-h3 text-n-900 mt-1">{label}</p>
-//       <p className="font-body text-ds-caption text-n-400">{sub}</p>
+//       <p className="font-body text-ds-caption text-n-400 text-center">{sub}</p>
 //     </div>
 //   );
 // }
@@ -233,7 +232,7 @@
 //   } as const;
 //   const { label, bg, text } = map[level];
 //   return (
-//     <span className={`text-ds-caption font-body font-semibold px-2.5 py-0.5 rounded-full ${bg} ${text}`}>
+//     <span className={`shrink-0 text-ds-caption font-body font-semibold px-2.5 py-0.5 rounded-full ${bg} ${text} whitespace-nowrap`}>
 //       {label}
 //     </span>
 //   );
@@ -246,15 +245,17 @@
 //   dot: string; title: string; body: string; impact: "high" | "medium" | "strength";
 // }) {
 //   return (
-//     <div className="flex items-start justify-between gap-4 rounded-lg border border-n-border bg-white px-5 py-4 shadow-elev-1">
-//       <div className="flex items-start gap-3">
+//     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 rounded-lg border border-n-border bg-white px-4 sm:px-5 py-4 shadow-elev-1">
+//       <div className="flex items-start gap-3 flex-1">
 //         <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: dot }} />
 //         <div>
 //           <p className="font-display font-semibold text-ds-h3 text-n-900">{title}</p>
 //           <p className="mt-1 font-body text-ds-body-sm text-n-500 max-w-[480px]">{body}</p>
 //         </div>
 //       </div>
-//       <ImpactBadge level={impact} />
+//       <div className="pl-5 sm:pl-0">
+//         <ImpactBadge level={impact} />
+//       </div>
 //     </div>
 //   );
 // }
@@ -262,13 +263,13 @@
 // // ── Fix row ───────────────────────────────────────────────────────────────────
 // function FixRow({ num, title, barW, lift }: { num: string; title: string; barW: string; lift?: number }) {
 //   return (
-//     <div className="rounded-lg border border-n-border bg-white px-5 py-4 shadow-elev-1">
-//       <div className="flex items-center justify-between">
-//         <div className="flex items-center gap-3">
+//     <div className="rounded-lg border border-n-border bg-white px-4 sm:px-5 py-4 shadow-elev-1">
+//       <div className="flex items-center justify-between gap-3">
+//         <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
 //           <span className="font-body text-ds-caption text-n-400 w-5 shrink-0">{num}</span>
-//           <p className="font-display font-semibold text-ds-h3 text-n-900">{title}</p>
+//           <p className="font-display font-semibold text-ds-h3 text-n-900 truncate">{title}</p>
 //         </div>
-//         <span className="font-body text-ds-caption text-brand font-semibold">+{lift ?? 0}% RPI</span>
+//         <span className="font-body text-ds-caption text-brand font-semibold shrink-0">+{lift ?? 0}% RPI</span>
 //       </div>
 //       <div className="mt-3 h-1.5 w-full rounded-full bg-n-100">
 //         <div className="h-full rounded-full bg-brand" style={{ width: barW }} />
@@ -280,14 +281,14 @@
 // // ── Competitor table ──────────────────────────────────────────────────────────
 // function CompetitorTable({ scores }: { scores: Record<string, any> }) {
 //   return (
-//     <div className="overflow-x-auto rounded-lg border border-n-border bg-white shadow-elev-1">
-//       <table className="w-full text-sm">
+//     <div className="overflow-x-auto rounded-lg border border-n-border bg-white shadow-elev-1 -mx-4 sm:mx-0">
+//       <table className="w-full text-sm min-w-[560px]">
 //         <thead>
 //           <tr className="border-b border-n-border bg-n-50">
 //             {["Product", "LQS", "CTR", "CVR", "Rating", "RPI"].map((h, i) => (
 //               <th
 //                 key={h}
-//                 className={`px-4 py-3 font-display font-semibold text-ds-caption text-n-500 uppercase tracking-wide ${i === 0 ? "text-left" : i === 5 ? "text-right" : "text-center"}`}
+//                 className={`px-3 sm:px-4 py-3 font-display font-semibold text-ds-caption text-n-500 uppercase tracking-wide ${i === 0 ? "text-left" : i === 5 ? "text-right" : "text-center"}`}
 //               >
 //                 {h}
 //               </th>
@@ -299,7 +300,7 @@
 //             const isTarget = key === "TARGET";
 //             return (
 //               <tr key={key} className={`border-b border-n-border last:border-0 ${isTarget ? "bg-brand-light" : "hover:bg-n-50"}`}>
-//                 <td className="px-4 py-3 max-w-[240px]">
+//                 <td className="px-3 sm:px-4 py-3 max-w-[160px] sm:max-w-[240px]">
 //                   <div className="flex items-center gap-2">
 //                     {isTarget && (
 //                       <span className="shrink-0 rounded-full bg-brand px-2 py-0.5 font-body text-[10px] font-bold text-white uppercase">You</span>
@@ -309,19 +310,19 @@
 //                     </span>
 //                   </div>
 //                 </td>
-//                 <td className="px-4 py-3 text-center">
+//                 <td className="px-3 sm:px-4 py-3 text-center">
 //                   <span className="font-display font-semibold text-ds-body-sm" style={{ color: value.lqs >= 70 ? "#16A34A" : value.lqs >= 40 ? "#F59E0B" : "#EF4444" }}>
 //                     {value.lqs}
 //                   </span>
 //                   <span className="ml-1 font-body text-ds-caption text-n-400">({value.grade})</span>
 //                 </td>
-//                 <td className="px-4 py-3 text-center font-body text-ds-body-sm text-n-700">{Math.round((value.ctr ?? 0) * 100)}%</td>
-//                 <td className="px-4 py-3 text-center font-body text-ds-body-sm text-n-700">{Math.round((value.cvr ?? 0) * 100)}%</td>
-//                 <td className="px-4 py-3 text-center font-body text-ds-body-sm text-n-700">
+//                 <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">{Math.round((value.ctr ?? 0) * 100)}%</td>
+//                 <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">{Math.round((value.cvr ?? 0) * 100)}%</td>
+//                 <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">
 //                   {value.rating > 0 ? `${value.rating} ★` : "—"}
 //                   <span className="ml-1 text-n-400">({value.reviews})</span>
 //                 </td>
-//                 <td className="px-4 py-3 text-right font-display font-semibold text-ds-body-sm text-n-900">₹{value.rpi}</td>
+//                 <td className="px-3 sm:px-4 py-3 text-right font-display font-semibold text-ds-body-sm text-n-900">₹{value.rpi}</td>
 //               </tr>
 //             );
 //           })}
@@ -333,7 +334,6 @@
 
 // // ── Error screen ──────────────────────────────────────────────────────────────
 // function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => void }) {
-//   // Parse JSON error message if possible
 //   let friendlyMessage = message;
 //   try {
 //     const parsed = JSON.parse(message);
@@ -343,7 +343,7 @@
 //   }
 
 //   return (
-//     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-n-50 font-body px-6">
+//     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-n-50 font-body px-4 sm:px-6">
 //       <div
 //         className="absolute inset-0 opacity-[0.03] pointer-events-none"
 //         style={{
@@ -362,17 +362,14 @@
 //           </svg>
 //         </div>
 
-//         {/* Heading */}
-//         <h2 className="font-display text-[22px] font-bold text-n-900 mb-2">
+//         <h2 className="font-display text-xl sm:text-[22px] font-bold text-n-900 mb-2">
 //           Couldn't score this listing
 //         </h2>
 
-//         {/* Message */}
 //         <p className="font-body text-ds-body-sm text-n-500 mb-6 leading-relaxed">
 //           {friendlyMessage}
 //         </p>
 
-//         {/* Actions */}
 //         <div className="flex flex-col gap-3 w-full">
 //           <button
 //             onClick={onRetry}
@@ -421,10 +418,15 @@
 //     }
 
 //     try {
-//       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, {
+//       const response = await fetch("/api/analyze", {
 //         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ mode: "url", url: pendingUrl }),
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           mode: "url",
+//           url: pendingUrl,
+//         }),
 //       });
 
 //       if (!response.ok) {
@@ -435,13 +437,14 @@
 //       }
 
 //       const result = await response.json();
+
 //       localStorage.setItem("opsellResult", JSON.stringify(result));
 //       localStorage.removeItem("pendingAmazonUrl");
 //       setData(result);
 //     } catch (err: any) {
 //       console.error(err);
 //       setError(err?.message ?? "Something went wrong. Please try again.");
-//     } finally {
+//     }finally{
 //       setIsFetching(false);
 //     }
 //   };
@@ -451,21 +454,22 @@
 //   }, []);
 
 //   // ── Derived values ──────────────────────────────────────────────────────────
-//   const target = data?.scores?.TARGET;
+//   // const target = data?.scores?.TARGET;
+//   const target = data?.scores?.find((s: any) => s.label === "TARGET");
+
+  
 //   const feedback = data?.feedback;
 
 //   const leakPercent = Math.abs(
 //     Math.round(
 //       ((feedback?.executive_summary?.gap_to_leader ?? 0) /
 //         (feedback?.executive_summary?.best_competitor ?? 1)) *
-//         100
+//       100
 //     )
 //   );
 
-//   // Show full-page loader while fetching
 //   if (isFetching) return <FullPageLoader />;
 
-//   // Show error screen if fetch failed
 //   if (error) return (
 //     <ErrorScreen
 //       message={error}
@@ -480,20 +484,20 @@
 //   const isLoading = !data;
 
 //   return (
-//     <div className="min-h-screen p-10 bg-n-50 font-body">
+//     <div className="min-h-screen bg-n-50 font-body pb-16">
 
 //       {/* ── Live pill ── */}
-//       <div className="flex justify-center pt-8">
-//         <div className="flex items-center gap-2 rounded-full bg-success-light border border-success/20 px-4 py-1.5">
-//           <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
-//           <span className="font-body text-ds-caption text-success font-medium">
+//       <div className="flex justify-center pt-6 sm:pt-8 px-4">
+//         <div className="flex items-center gap-2 rounded-full bg-success-light border border-success/20 px-3 sm:px-4 py-1.5">
+//           <span className="h-2 w-2 rounded-full bg-success animate-pulse shrink-0" />
+//           <span className="font-body text-ds-caption text-success font-medium text-center">
 //             23 sellers scored their listings in the last hour
 //           </span>
 //         </div>
 //       </div>
 
 //       {/* ── Score another listing link ── */}
-//       <div className="mx-auto mt-6 max-w-4xl px-6">
+//       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
 //         <a href="#" className="font-body text-ds-body text-brand hover:underline">
 //           Score another listing
 //         </a>
@@ -503,7 +507,7 @@
 //           <span className="rounded-full bg-n-200 px-2.5 py-0.5 text-ds-caption font-semibold text-n-700">
 //             Electronics
 //           </span>
-//           <span className="text-n-400">
+//           <span className="text-n-400 break-all">
 //             {target?.asin ? `amazon.in/dp/${target.asin}` : "amazon.in/dp/…"}
 //           </span>
 //           {isLoading ? (
@@ -527,15 +531,15 @@
 //         {isLoading ? (
 //           <Skeleton className="mt-3 h-8 w-3/4" />
 //         ) : (
-//           <h1 className="mt-3 font-display text-[28px] font-extrabold leading-tight text-n-900">
+//           <h1 className="mt-3 font-display text-2xl sm:text-[28px] font-extrabold leading-tight text-n-900">
 //             {target?.title}
 //           </h1>
 //         )}
 //       </div>
 
 //       {/* ── Score cards ── */}
-//       <div className="mx-auto mt-6 max-w-4xl px-6">
-//         <div className="flex flex-wrap gap-3">
+//       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
+//         <div className="flex gap-2 sm:gap-3">
 //           {isLoading ? (
 //             <><GaugeSkeleton /><GaugeSkeleton /><GaugeSkeleton /></>
 //           ) : (
@@ -549,14 +553,14 @@
 //       </div>
 
 //       {/* ── Revenue leak banner ── */}
-//       <div className="mx-auto mt-5 max-w-4xl px-6">
-//         <div className="rounded-xl bg-n-900 px-6 py-5 flex flex-wrap items-center justify-between gap-4">
+//       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
+//         <div className="rounded-xl bg-n-900 px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 //           <div>
 //             <p className="font-body text-ds-caption text-n-400">Estimated revenue being left behind</p>
 //             {isLoading ? (
 //               <Skeleton className="mt-1 h-9 w-32" />
 //             ) : (
-//               <p className="mt-1 font-display text-[32px] font-extrabold text-warning leading-none">~{leakPercent}%</p>
+//               <p className="mt-1 font-display text-[28px] sm:text-[32px] font-extrabold text-warning leading-none">~{leakPercent}%</p>
 //             )}
 //             <p className="mt-2 font-body text-ds-body-sm text-n-400 max-w-xs">
 //               At category-average AOV and traffic, this listing is leaking revenue every month.
@@ -564,7 +568,7 @@
 //           </div>
 //           <button
 //             onClick={() => setShowFixModal(true)}
-//             className="shrink-0 rounded-lg border border-n-600 bg-transparent px-4 py-2.5 font-display font-semibold text-ds-body text-white hover:bg-n-800 transition-colors"
+//             className="w-full sm:w-auto shrink-0 rounded-lg border border-n-600 bg-transparent px-4 py-2.5 font-display font-semibold text-ds-body text-white hover:bg-n-800 transition-colors text-center"
 //           >
 //             See how to fix this →
 //           </button>
@@ -572,8 +576,8 @@
 //       </div>
 
 //       {/* ── RPI ── */}
-//       <div className="mx-auto mt-5 max-w-4xl px-6">
-//         <div className="flex items-center justify-between rounded-lg border border-n-border bg-white px-5 py-3 shadow-elev-1">
+//       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
+//         <div className="flex items-center justify-between rounded-lg border border-n-border bg-white px-4 sm:px-5 py-3 shadow-elev-1">
 //           <span className="font-body text-ds-body text-n-600">Revenue Potential Index (RPI)</span>
 //           {isLoading ? (
 //             <Skeleton className="h-5 w-24" />
@@ -584,14 +588,14 @@
 //       </div>
 
 //       {/* ── Competitor table ── */}
-//       <div className="mx-auto mt-5 max-w-4xl px-6">
+//       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
 //         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3">Competitor Comparison</h2>
 //         {isLoading ? <Skeleton className="h-48 w-full" /> : <CompetitorTable scores={data?.scores ?? {}} />}
 //       </div>
 
 //       {/* ── What we found ── */}
-//       <div className="mx-auto mt-8 max-w-4xl px-6">
-//         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-4">What we found</h2>
+//       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
+//         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3 sm:mb-4">What we found</h2>
 //         <div className="flex flex-col gap-3 w-full">
 //           {isLoading ? (
 //             <><FindingSkeleton /><FindingSkeleton /><FindingSkeleton /></>
@@ -604,10 +608,10 @@
 //       </div>
 
 //       {/* ── Top priority card ── */}
-//       <div className="mx-auto mt-5 max-w-4xl px-6">
-//         <div className="rounded-xl border border-brand/30 bg-brand-light px-5 py-5">
+//       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
+//         <div className="rounded-xl border border-brand/30 bg-brand-light px-4 sm:px-5 py-5">
 //           <div className="flex items-center gap-2 mb-2">
-//             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand font-display font-bold text-ds-caption text-white">1</span>
+//             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand font-display font-bold text-ds-caption text-white shrink-0">1</span>
 //             <span className="font-body text-ds-caption font-semibold text-brand uppercase tracking-wide">Top priority</span>
 //           </div>
 //           {isLoading ? (
@@ -625,7 +629,7 @@
 //       </div>
 
 //       {/* ── More fixes ── */}
-//       <div className="mx-auto mt-8 max-w-4xl px-6 mb-6">
+//       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
 //         <h2 className="font-display font-bold text-ds-h2 text-n-900">More fixes for this listing</h2>
 //         <p className="font-body text-ds-body-sm text-n-400 mb-4 mt-0.5">Ranked by estimated revenue impact</p>
 //         <div className="flex flex-col gap-3">
@@ -646,9 +650,9 @@
 //       </div>
 
 //       {/* ── Upsell card ── */}
-//       <div className="mx-auto mb-16 max-w-4xl px-6">
-//         <div className="rounded-2xl bg-brand-light border border-brand/10 px-10 py-12 text-center">
-//           <p className="font-display text-[20px] font-bold text-n-900 leading-snug mb-7">
+//       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
+//         <div className="rounded-2xl bg-brand-light border border-brand/10 px-6 sm:px-10 py-10 sm:py-12 text-center">
+//           <p className="font-display text-lg sm:text-[20px] font-bold text-n-900 leading-snug mb-6 sm:mb-7">
 //             {feedback?.priority_actions?.length > 5
 //               ? `${feedback.priority_actions.length - 5} more fixes are waiting.`
 //               : "More fixes are waiting."}{" "}
@@ -656,7 +660,7 @@
 //           </p>
 //           <button
 //             onClick={() => window.location.href = "/dashboard"}
-//             className="bg-brand text-white border-none rounded-xl px-9 py-4 font-display font-semibold text-ds-body cursor-pointer shadow-[0_4px_16px_rgba(80,70,229,0.35)] hover:bg-brand-dark transition-colors"
+//             className="w-full sm:w-auto bg-brand text-white border-none rounded-xl px-8 sm:px-9 py-4 font-display font-semibold text-ds-body cursor-pointer shadow-[0_4px_16px_rgba(80,70,229,0.35)] hover:bg-brand-dark transition-colors"
 //           >
 //             Connect my account
 //           </button>
@@ -669,34 +673,39 @@
 //       {/* ── Fix modal ── */}
 //       {showFixModal && (
 //         <div
-//           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+//           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"
 //           onClick={() => setShowFixModal(false)}
 //         >
 //           <div
-//             className="w-full max-w-[720px] rounded-3xl bg-white p-8 shadow-2xl"
+//             className="w-full sm:max-w-[720px] rounded-t-3xl sm:rounded-3xl bg-white px-6 sm:px-8 pt-6 sm:pt-8 pb-8 shadow-2xl max-h-[90vh] overflow-y-auto"
 //             onClick={(e) => e.stopPropagation()}
 //           >
-//             <h2 className="text-center text-4xl font-bold text-n-900">Connect Amazon to unlock everything</h2>
-//             <div className="mt-8 space-y-5">
+//             {/* Mobile drag handle */}
+//             <div className="flex justify-center mb-5 sm:hidden">
+//               <div className="w-10 h-1 rounded-full bg-n-200" />
+//             </div>
+
+//             <h2 className="text-center text-2xl sm:text-4xl font-bold text-n-900">Connect Amazon to unlock everything</h2>
+//             <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-5">
 //               {[
 //                 { icon: "📈", text: "Full listing diagnosis across all your products" },
 //                 { icon: "✨", text: "AI-generated fixes, ready to copy-paste" },
 //                 { icon: "👁️", text: "Competitive intelligence, updated weekly" },
 //               ].map(({ icon, text }) => (
 //                 <div key={text} className="flex items-center gap-3">
-//                   <span>{icon}</span>
-//                   <p>{text}</p>
+//                   <span className="text-xl">{icon}</span>
+//                   <p className="font-body text-ds-body text-n-700">{text}</p>
 //                 </div>
 //               ))}
 //             </div>
 //             <button
 //               onClick={() => { setShowFixModal(false); window.location.href = "/dashboard"; }}
-//               className="mt-10 w-full rounded-xl bg-brand py-4 text-lg font-semibold text-white transition hover:opacity-90"
+//               className="mt-8 sm:mt-10 w-full rounded-xl bg-brand py-4 text-base sm:text-lg font-semibold text-white transition hover:opacity-90"
 //             >
 //               Connect my Amazon account
 //             </button>
-//             <div className="mt-8 border-t pt-5">
-//               <div className="flex justify-center gap-8 text-sm text-n-400">
+//             <div className="mt-6 sm:mt-8 border-t pt-4 sm:pt-5">
+//               <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-n-400">
 //                 <span>🔒 No credit card</span>
 //                 <span>🛡️ Data encrypted</span>
 //                 <span>✓ Cancel anytime</span>
@@ -710,10 +719,63 @@
 // }
 
 
-
 "use client";
 
 import { useState, useEffect } from "react";
+
+// ── Types ─────────────────────────────────────────────────────────────────────
+interface ScoreItem {
+  label: string;
+  title: string;
+  asin: string;
+  price: number;
+  discount: number;
+  rating: number;
+  reviews: number;
+  lqs: number;
+  grade: string;
+  ctr: number;
+  cvr: number;
+  rpi: number;
+  qc_flags: string[];
+}
+
+interface HealthItem {
+  level: string;
+  msg: string;
+}
+
+interface PriorityAction {
+  action: string;
+  rpi_lift: number;
+  ease: number;
+  priority: number;
+}
+
+interface ExecutiveSummary {
+  gap_to_leader: number;
+  best_competitor: number;
+  top_action: string;
+  top_action_lift: number;
+  top3_combined: number;
+}
+
+interface Feedback {
+  asin: string;
+  health: HealthItem[];
+  strengths: string[];
+  quick_wins: string[];
+  medium_term: string[];
+  long_term: string[];
+  priority_actions: PriorityAction[];
+  executive_summary: ExecutiveSummary;
+}
+
+interface ApiResult {
+  ok: boolean;
+  scores: ScoreItem[];
+  feedback: Feedback;
+}
 
 // ── Loader steps ──────────────────────────────────────────────────────────────
 const LOADER_STEPS = [
@@ -727,22 +789,16 @@ const LOADER_STEPS = [
 
 function FullPageLoader() {
   const [currentStep, setCurrentStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
   useEffect(() => {
-    let step = 0;
-    const tick = () => {
-      if (step >= LOADER_STEPS.length - 1) return;
-      setCompletedSteps((prev) => [...prev, step]);
-      step += 1;
-      setCurrentStep(step);
-      setTimeout(tick, LOADER_STEPS[step].duration);
-    };
-    const timer = setTimeout(tick, LOADER_STEPS[0].duration);
+    if (currentStep >= LOADER_STEPS.length - 1) return;
+    const timer = setTimeout(() => {
+      setCurrentStep((prev) => prev + 1);
+    }, LOADER_STEPS[currentStep].duration);
     return () => clearTimeout(timer);
-  }, []);
+  }, [currentStep]);
 
-  const progress = Math.round(((completedSteps.length) / LOADER_STEPS.length) * 100);
+  const progress = Math.round((currentStep / (LOADER_STEPS.length - 1)) * 100);
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-n-50 font-body">
@@ -762,7 +818,16 @@ function FullPageLoader() {
           <div className="relative flex h-10 w-10 items-center justify-center">
             <span className="absolute inline-flex h-full w-full rounded-full bg-brand opacity-20 animate-ping" />
             <span className="relative flex h-8 w-8 rounded-full bg-brand items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M22 7l-9.5 9.5-4-4L2 19M22 7h-6M22 7v6" />
               </svg>
             </span>
@@ -791,7 +856,7 @@ function FullPageLoader() {
         {/* Steps */}
         <div className="w-full flex flex-col gap-2 sm:gap-2.5">
           {LOADER_STEPS.map((step, i) => {
-            const isDone = completedSteps.includes(i);
+            const isDone = i < currentStep;
             const isActive = i === currentStep;
             return (
               <div
@@ -807,7 +872,15 @@ function FullPageLoader() {
                 {/* Icon */}
                 <span className="shrink-0 flex h-5 w-5 items-center justify-center">
                   {isDone ? (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="2.5" strokeLinecap="round">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#16A34A"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    >
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   ) : isActive ? (
@@ -843,15 +916,13 @@ function FullPageLoader() {
   );
 }
 
-// ── Skeleton shimmer ──────────────────────────────────────────────────────────
 function Skeleton({ className }: { className?: string }) {
   return (
     <div className={`rounded-md bg-n-200 overflow-hidden relative ${className}`}>
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%)",
+          background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%)",
           backgroundSize: "200% 100%",
           animation: "aiShimmer 1.6s ease infinite",
         }}
@@ -901,12 +972,15 @@ function FixRowSkeleton() {
   );
 }
 
-// ── Radial arc gauge ──────────────────────────────────────────────────────────
+function lqsColor(v: number) {
+  return v >= 70 ? "#16A34A" : v >= 40 ? "#F59E0B" : "#EF4444";
+}
+
 function ArcGauge({ value, label, sub }: { value: number; label: string; sub: string }) {
   const circumference = Math.PI * 28;
   const clamped = Math.min(100, Math.max(0, value));
   const offset = circumference * (1 - clamped / 100);
-  const color = clamped >= 70 ? "#16A34A" : clamped >= 40 ? "#F59E0B" : "#EF4444";
+  const color = lqsColor(clamped);
 
   return (
     <div className="flex-1 flex flex-col items-center gap-1 px-3 sm:px-6 py-3 sm:py-4 bg-white rounded-lg border border-n-border shadow-elev-1 min-w-0">
@@ -937,7 +1011,6 @@ function ArcGauge({ value, label, sub }: { value: number; label: string; sub: st
   );
 }
 
-// ── Impact badge ─────────────────────────────────────────────────────────────
 function ImpactBadge({ level }: { level: "high" | "medium" | "strength" }) {
   const map = {
     high: { label: "High Impact", bg: "bg-error-light", text: "text-error" },
@@ -952,11 +1025,16 @@ function ImpactBadge({ level }: { level: "high" | "medium" | "strength" }) {
   );
 }
 
-// ── Finding card ─────────────────────────────────────────────────────────────
 function FindingCard({
-  dot, title, body, impact,
+  dot,
+  title,
+  body,
+  impact,
 }: {
-  dot: string; title: string; body: string; impact: "high" | "medium" | "strength";
+  dot: string;
+  title: string;
+  body: string;
+  impact: "high" | "medium" | "strength";
 }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 rounded-lg border border-n-border bg-white px-4 sm:px-5 py-4 shadow-elev-1">
@@ -974,8 +1052,17 @@ function FindingCard({
   );
 }
 
-// ── Fix row ───────────────────────────────────────────────────────────────────
-function FixRow({ num, title, barW, lift }: { num: string; title: string; barW: string; lift?: number }) {
+function FixRow({
+  num,
+  title,
+  barW,
+  lift,
+}: {
+  num: string;
+  title: string;
+  barW: string;
+  lift?: number;
+}) {
   return (
     <div className="rounded-lg border border-n-border bg-white px-4 sm:px-5 py-4 shadow-elev-1">
       <div className="flex items-center justify-between gap-3">
@@ -983,7 +1070,9 @@ function FixRow({ num, title, barW, lift }: { num: string; title: string; barW: 
           <span className="font-body text-ds-caption text-n-400 w-5 shrink-0">{num}</span>
           <p className="font-display font-semibold text-ds-h3 text-n-900 truncate">{title}</p>
         </div>
-        <span className="font-body text-ds-caption text-brand font-semibold shrink-0">+{lift ?? 0}% RPI</span>
+        <span className="font-body text-ds-caption text-brand font-semibold shrink-0">
+          +{lift ?? 0}% RPI
+        </span>
       </div>
       <div className="mt-3 h-1.5 w-full rounded-full bg-n-100">
         <div className="h-full rounded-full bg-brand" style={{ width: barW }} />
@@ -992,8 +1081,8 @@ function FixRow({ num, title, barW, lift }: { num: string; title: string; barW: 
   );
 }
 
-// ── Competitor table ──────────────────────────────────────────────────────────
-function CompetitorTable({ scores }: { scores: Record<string, any> }) {
+// ── Competitor table — accepts ScoreItem[] ────────────────────────────────────
+function CompetitorTable({ scores }: { scores: ScoreItem[] }) {
   return (
     <div className="overflow-x-auto rounded-lg border border-n-border bg-white shadow-elev-1 -mx-4 sm:mx-0">
       <table className="w-full text-sm min-w-[560px]">
@@ -1002,7 +1091,9 @@ function CompetitorTable({ scores }: { scores: Record<string, any> }) {
             {["Product", "LQS", "CTR", "CVR", "Rating", "RPI"].map((h, i) => (
               <th
                 key={h}
-                className={`px-3 sm:px-4 py-3 font-display font-semibold text-ds-caption text-n-500 uppercase tracking-wide ${i === 0 ? "text-left" : i === 5 ? "text-right" : "text-center"}`}
+                className={`px-3 sm:px-4 py-3 font-display font-semibold text-ds-caption text-n-500 uppercase tracking-wide ${
+                  i === 0 ? "text-left" : i === 5 ? "text-right" : "text-center"
+                }`}
               >
                 {h}
               </th>
@@ -1010,33 +1101,53 @@ function CompetitorTable({ scores }: { scores: Record<string, any> }) {
           </tr>
         </thead>
         <tbody>
-          {Object.entries(scores).map(([key, value]: [string, any]) => {
-            const isTarget = key === "TARGET";
+          {scores.map((item) => {
+            const isTarget = item.label === "TARGET";
             return (
-              <tr key={key} className={`border-b border-n-border last:border-0 ${isTarget ? "bg-brand-light" : "hover:bg-n-50"}`}>
+              <tr
+                key={item.label}
+                className={`border-b border-n-border last:border-0 ${
+                  isTarget ? "bg-brand-light" : "hover:bg-n-50"
+                }`}
+              >
                 <td className="px-3 sm:px-4 py-3 max-w-[160px] sm:max-w-[240px]">
                   <div className="flex items-center gap-2">
                     {isTarget && (
-                      <span className="shrink-0 rounded-full bg-brand px-2 py-0.5 font-body text-[10px] font-bold text-white uppercase">You</span>
+                      <span className="shrink-0 rounded-full bg-brand px-2 py-0.5 font-body text-[10px] font-bold text-white uppercase">
+                        You
+                      </span>
                     )}
-                    <span className={`font-body text-ds-body-sm truncate ${isTarget ? "font-semibold text-n-900" : "text-n-600"}`}>
-                      {value.title}
+                    <span
+                      className={`font-body text-ds-body-sm truncate ${
+                        isTarget ? "font-semibold text-n-900" : "text-n-600"
+                      }`}
+                    >
+                      {item.title}
                     </span>
                   </div>
                 </td>
                 <td className="px-3 sm:px-4 py-3 text-center">
-                  <span className="font-display font-semibold text-ds-body-sm" style={{ color: value.lqs >= 70 ? "#16A34A" : value.lqs >= 40 ? "#F59E0B" : "#EF4444" }}>
-                    {value.lqs}
+                  <span
+                    className="font-display font-semibold text-ds-body-sm"
+                    style={{ color: lqsColor(item.lqs) }}
+                  >
+                    {item.lqs}
                   </span>
-                  <span className="ml-1 font-body text-ds-caption text-n-400">({value.grade})</span>
+                  <span className="ml-1 font-body text-ds-caption text-n-400">({item.grade})</span>
                 </td>
-                <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">{Math.round((value.ctr ?? 0) * 100)}%</td>
-                <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">{Math.round((value.cvr ?? 0) * 100)}%</td>
                 <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">
-                  {value.rating > 0 ? `${value.rating} ★` : "—"}
-                  <span className="ml-1 text-n-400">({value.reviews})</span>
+                  {Math.round((item.ctr ?? 0) * 100)}%
                 </td>
-                <td className="px-3 sm:px-4 py-3 text-right font-display font-semibold text-ds-body-sm text-n-900">₹{value.rpi}</td>
+                <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">
+                  {Math.round((item.cvr ?? 0) * 100)}%
+                </td>
+                <td className="px-3 sm:px-4 py-3 text-center font-body text-ds-body-sm text-n-700">
+                  {item.rating > 0 ? `${item.rating} ★` : "—"}
+                  <span className="ml-1 text-n-400">({item.reviews})</span>
+                </td>
+                <td className="px-3 sm:px-4 py-3 text-right font-display font-semibold text-ds-body-sm text-n-900">
+                  ₹{item.rpi}
+                </td>
               </tr>
             );
           })}
@@ -1046,7 +1157,6 @@ function CompetitorTable({ scores }: { scores: Record<string, any> }) {
   );
 }
 
-// ── Error screen ──────────────────────────────────────────────────────────────
 function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => void }) {
   let friendlyMessage = message;
   try {
@@ -1067,7 +1177,6 @@ function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => voi
         }}
       />
       <div className="relative z-10 flex flex-col items-center text-center max-w-sm w-full">
-        {/* Icon */}
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-error-light mb-5">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round">
             <circle cx="12" cy="12" r="10" />
@@ -1075,15 +1184,10 @@ function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => voi
             <line x1="12" y1="16" x2="12.01" y2="16" />
           </svg>
         </div>
-
         <h2 className="font-display text-xl sm:text-[22px] font-bold text-n-900 mb-2">
           Couldn't score this listing
         </h2>
-
-        <p className="font-body text-ds-body-sm text-n-500 mb-6 leading-relaxed">
-          {friendlyMessage}
-        </p>
-
+        <p className="font-body text-ds-body-sm text-n-500 mb-6 leading-relaxed">{friendlyMessage}</p>
         <div className="flex flex-col gap-3 w-full">
           <button
             onClick={onRetry}
@@ -1098,7 +1202,6 @@ function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => voi
             Retry
           </button>
         </div>
-
         <p className="mt-6 font-body text-ds-caption text-n-300">
           If this keeps happening, the ASIN may not be available on amazon.in
         </p>
@@ -1109,7 +1212,7 @@ function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => voi
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 export default function FreeScorePage() {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<ApiResult | null>(null);
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showFixModal, setShowFixModal] = useState(false);
@@ -1132,7 +1235,7 @@ export default function FreeScorePage() {
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, {
+      const response = await fetch("/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ mode: "url", url: pendingUrl }),
@@ -1140,17 +1243,15 @@ export default function FreeScorePage() {
 
       if (!response.ok) {
         const err = await response.text();
-        console.error("Backend Error:", err);
         setError(err);
         return;
       }
 
-      const result = await response.json();
+      const result: ApiResult = await response.json();
       localStorage.setItem("opsellResult", JSON.stringify(result));
       localStorage.removeItem("pendingAmazonUrl");
       setData(result);
     } catch (err: any) {
-      console.error(err);
       setError(err?.message ?? "Something went wrong. Please try again.");
     } finally {
       setIsFetching(false);
@@ -1162,7 +1263,8 @@ export default function FreeScorePage() {
   }, []);
 
   // ── Derived values ──────────────────────────────────────────────────────────
-  const target = data?.scores?.TARGET;
+  // scores is an array — find TARGET by label
+  const target = data?.scores?.find((s) => s.label === "TARGET");
   const feedback = data?.feedback;
 
   const leakPercent = Math.abs(
@@ -1175,16 +1277,17 @@ export default function FreeScorePage() {
 
   if (isFetching) return <FullPageLoader />;
 
-  if (error) return (
-    <ErrorScreen
-      message={error}
-      onRetry={() => {
-        localStorage.removeItem("opsellResult");
-        localStorage.removeItem("pendingAmazonUrl");
-        window.location.href = "/";
-      }}
-    />
-  );
+  if (error)
+    return (
+      <ErrorScreen
+        message={error}
+        onRetry={() => {
+          localStorage.removeItem("opsellResult");
+          localStorage.removeItem("pendingAmazonUrl");
+          window.location.href = "/";
+        }}
+      />
+    );
 
   const isLoading = !data;
 
@@ -1201,7 +1304,7 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── Score another listing link ── */}
+      {/* ── Score another listing ── */}
       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
         <a href="#" className="font-body text-ds-body text-brand hover:underline">
           Score another listing
@@ -1220,12 +1323,12 @@ export default function FreeScorePage() {
           ) : (
             <>
               <span className="font-semibold text-n-900">₹{target?.price}</span>
-              {target?.discount > 0 && (
-                <span className="text-success font-semibold">({target.discount}% off)</span>
+              {(target?.discount ?? 0) > 0 && (
+                <span className="text-success font-semibold">({target!.discount}% off)</span>
               )}
               <span className="text-n-300">|</span>
               <span className="text-warning font-semibold">
-                {target?.rating > 0 ? `${target.rating} ★` : "No rating yet"}
+                {(target?.rating ?? 0) > 0 ? `${target!.rating} ★` : "No rating yet"}
               </span>
               <span className="text-n-400">({target?.reviews} reviews)</span>
             </>
@@ -1242,16 +1345,32 @@ export default function FreeScorePage() {
         )}
       </div>
 
-      {/* ── Score cards ── */}
+      {/* ── Score gauges ── */}
       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
         <div className="flex gap-2 sm:gap-3">
           {isLoading ? (
-            <><GaugeSkeleton /><GaugeSkeleton /><GaugeSkeleton /></>
+            <>
+              <GaugeSkeleton />
+              <GaugeSkeleton />
+              <GaugeSkeleton />
+            </>
           ) : (
             <>
-              <ArcGauge value={target?.lqs ?? 0} label="LQS" sub={`Grade ${target?.grade}`} />
-              <ArcGauge value={Math.round((target?.ctr ?? 0) * 100)} label="Est. CTR" sub="Estimated CTR" />
-              <ArcGauge value={Math.round((target?.cvr ?? 0) * 100)} label="Est. CVR" sub="Estimated CVR" />
+              <ArcGauge
+                value={target?.lqs ?? 0}
+                label="LQS"
+                sub={`Grade ${target?.grade}`}
+              />
+              <ArcGauge
+                value={Math.round((target?.ctr ?? 0) * 100)}
+                label="Est. CTR"
+                sub="Estimated CTR"
+              />
+              <ArcGauge
+                value={Math.round((target?.cvr ?? 0) * 100)}
+                label="Est. CVR"
+                sub="Estimated CVR"
+              />
             </>
           )}
         </div>
@@ -1265,7 +1384,9 @@ export default function FreeScorePage() {
             {isLoading ? (
               <Skeleton className="mt-1 h-9 w-32" />
             ) : (
-              <p className="mt-1 font-display text-[28px] sm:text-[32px] font-extrabold text-warning leading-none">~{leakPercent}%</p>
+              <p className="mt-1 font-display text-[28px] sm:text-[32px] font-extrabold text-warning leading-none">
+                ~{leakPercent}%
+              </p>
             )}
             <p className="mt-2 font-body text-ds-body-sm text-n-400 max-w-xs">
               At category-average AOV and traffic, this listing is leaking revenue every month.
@@ -1295,7 +1416,11 @@ export default function FreeScorePage() {
       {/* ── Competitor table ── */}
       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3">Competitor Comparison</h2>
-        {isLoading ? <Skeleton className="h-48 w-full" /> : <CompetitorTable scores={data?.scores ?? {}} />}
+        {isLoading ? (
+          <Skeleton className="h-48 w-full" />
+        ) : (
+          <CompetitorTable scores={data?.scores ?? []} />
+        )}
       </div>
 
       {/* ── What we found ── */}
@@ -1303,10 +1428,20 @@ export default function FreeScorePage() {
         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3 sm:mb-4">What we found</h2>
         <div className="flex flex-col gap-3 w-full">
           {isLoading ? (
-            <><FindingSkeleton /><FindingSkeleton /><FindingSkeleton /></>
+            <>
+              <FindingSkeleton />
+              <FindingSkeleton />
+              <FindingSkeleton />
+            </>
           ) : (
-            feedback?.health?.map((item: any, index: number) => (
-              <FindingCard key={index} dot="#EF4444" title={item.level} body={item.msg} impact="high" />
+            feedback?.health?.map((item, index) => (
+              <FindingCard
+                key={index}
+                dot={item.level === "CRITICAL" ? "#EF4444" : "#F59E0B"}
+                title={item.level}
+                body={item.msg}
+                impact={item.level === "CRITICAL" ? "high" : "medium"}
+              />
             ))
           )}
         </div>
@@ -1316,17 +1451,28 @@ export default function FreeScorePage() {
       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
         <div className="rounded-xl border border-brand/30 bg-brand-light px-4 sm:px-5 py-5">
           <div className="flex items-center gap-2 mb-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand font-display font-bold text-ds-caption text-white shrink-0">1</span>
-            <span className="font-body text-ds-caption font-semibold text-brand uppercase tracking-wide">Top priority</span>
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand font-display font-bold text-ds-caption text-white shrink-0">
+              1
+            </span>
+            <span className="font-body text-ds-caption font-semibold text-brand uppercase tracking-wide">
+              Top priority
+            </span>
           </div>
           {isLoading ? (
-            <><Skeleton className="h-5 w-64 mb-2" /><Skeleton className="h-4 w-full" /></>
+            <>
+              <Skeleton className="h-5 w-64 mb-2" />
+              <Skeleton className="h-4 w-full" />
+            </>
           ) : (
             <>
-              <p className="font-display font-bold text-ds-h3 text-n-900">{feedback?.executive_summary?.top_action}</p>
+              <p className="font-display font-bold text-ds-h3 text-n-900">
+                {feedback?.executive_summary?.top_action}
+              </p>
               <p className="mt-1 font-body text-ds-body-sm text-n-500 max-w-md">
                 Potential RPI Lift:{" "}
-                <span className="font-semibold text-brand">{feedback?.executive_summary?.top_action_lift}%</span>
+                <span className="font-semibold text-brand">
+                  {feedback?.executive_summary?.top_action_lift}%
+                </span>
               </p>
             </>
           )}
@@ -1336,12 +1482,18 @@ export default function FreeScorePage() {
       {/* ── More fixes ── */}
       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
         <h2 className="font-display font-bold text-ds-h2 text-n-900">More fixes for this listing</h2>
-        <p className="font-body text-ds-body-sm text-n-400 mb-4 mt-0.5">Ranked by estimated revenue impact</p>
+        <p className="font-body text-ds-body-sm text-n-400 mb-4 mt-0.5">
+          Ranked by estimated revenue impact
+        </p>
         <div className="flex flex-col gap-3">
           {isLoading ? (
-            <><FixRowSkeleton /><FixRowSkeleton /><FixRowSkeleton /></>
+            <>
+              <FixRowSkeleton />
+              <FixRowSkeleton />
+              <FixRowSkeleton />
+            </>
           ) : (
-            feedback?.priority_actions?.slice(0, 5)?.map((item: any, index: number) => (
+            feedback?.priority_actions?.slice(0, 5)?.map((item, index) => (
               <FixRow
                 key={index}
                 num={`0${index + 1}`}
@@ -1358,20 +1510,20 @@ export default function FreeScorePage() {
       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
         <div className="rounded-2xl bg-brand-light border border-brand/10 px-6 sm:px-10 py-10 sm:py-12 text-center">
           <p className="font-display text-lg sm:text-[20px] font-bold text-n-900 leading-snug mb-6 sm:mb-7">
-            {feedback?.priority_actions?.length > 5
-              ? `${feedback.priority_actions.length - 5} more fixes are waiting.`
+            {(feedback?.priority_actions?.length ?? 0) > 5
+              ? `${feedback!.priority_actions.length - 5} more fixes are waiting.`
               : "More fixes are waiting."}{" "}
-            Connect your<br />Amazon account to unlock them all.
+            Connect your
+            <br />
+            Amazon account to unlock them all.
           </p>
           <button
-            onClick={() => window.location.href = "/dashboard"}
+            onClick={() => (window.location.href = "/dashboard")}
             className="w-full sm:w-auto bg-brand text-white border-none rounded-xl px-8 sm:px-9 py-4 font-display font-semibold text-ds-body cursor-pointer shadow-[0_4px_16px_rgba(80,70,229,0.35)] hover:bg-brand-dark transition-colors"
           >
             Connect my account
           </button>
-          <p className="mt-4 font-body text-ds-caption text-n-400">
-            Setup takes under 4 minutes
-          </p>
+          <p className="mt-4 font-body text-ds-caption text-n-400">Setup takes under 4 minutes</p>
         </div>
       </div>
 
@@ -1385,12 +1537,12 @@ export default function FreeScorePage() {
             className="w-full sm:max-w-[720px] rounded-t-3xl sm:rounded-3xl bg-white px-6 sm:px-8 pt-6 sm:pt-8 pb-8 shadow-2xl max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Mobile drag handle */}
             <div className="flex justify-center mb-5 sm:hidden">
               <div className="w-10 h-1 rounded-full bg-n-200" />
             </div>
-
-            <h2 className="text-center text-2xl sm:text-4xl font-bold text-n-900">Connect Amazon to unlock everything</h2>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-n-900">
+              Connect Amazon to unlock everything
+            </h2>
             <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-5">
               {[
                 { icon: "📈", text: "Full listing diagnosis across all your products" },
@@ -1404,7 +1556,10 @@ export default function FreeScorePage() {
               ))}
             </div>
             <button
-              onClick={() => { setShowFixModal(false); window.location.href = "/dashboard"; }}
+              onClick={() => {
+                setShowFixModal(false);
+                window.location.href = "/dashboard";
+              }}
               className="mt-8 sm:mt-10 w-full rounded-xl bg-brand py-4 text-base sm:text-lg font-semibold text-white transition hover:opacity-90"
             >
               Connect my Amazon account
