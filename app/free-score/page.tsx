@@ -457,7 +457,7 @@
 //   // const target = data?.scores?.TARGET;
 //   const target = data?.scores?.find((s: any) => s.label === "TARGET");
 
-  
+
 //   const feedback = data?.feedback;
 
 //   const leakPercent = Math.abs(
@@ -777,6 +777,39 @@ interface ApiResult {
   feedback: Feedback;
 }
 
+const getCategory = (title?: string) => {
+  if (!title) return "Unknown";
+
+  const t = title.toLowerCase();
+
+  if (
+    /namkeen|snack|bhujia|mixture|chips|cookies|tea|coffee|chocolate|ready to eat|food/i.test(t)
+  ) {
+    return "Food & Grocery";
+  }
+
+  if (
+    /laptop|mobile|phone|headphone|earbuds|charger|speaker|monitor|keyboard|mouse/i.test(t)
+  ) {
+    return "Electronics";
+  }
+
+  if (
+    /face wash|serum|cream|lipstick|shampoo|conditioner|moisturizer|cosmetic/i.test(t)
+  ) {
+    return "Beauty & Cosmetics";
+  }
+
+  if (
+    /shirt|t-shirt|jeans|shoe|dress|jacket|hoodie/i.test(t)
+  ) {
+    return "Fashion";
+  }
+
+  return "Other";
+};
+
+
 // ── Loader steps ──────────────────────────────────────────────────────────────
 const LOADER_STEPS = [
   { label: "Fetching listing data from Amazon", duration: 1800 },
@@ -861,13 +894,12 @@ function FullPageLoader() {
             return (
               <div
                 key={i}
-                className={`flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border transition-all duration-300 ${
-                  isDone
-                    ? "border-success/20 bg-success-light"
-                    : isActive
+                className={`flex items-center gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border transition-all duration-300 ${isDone
+                  ? "border-success/20 bg-success-light"
+                  : isActive
                     ? "border-brand/30 bg-brand-light"
                     : "border-transparent bg-transparent opacity-40"
-                }`}
+                  }`}
               >
                 {/* Icon */}
                 <span className="shrink-0 flex h-5 w-5 items-center justify-center">
@@ -892,13 +924,12 @@ function FullPageLoader() {
 
                 {/* Label */}
                 <span
-                  className={`font-body text-ds-body-sm ${
-                    isDone
-                      ? "text-success font-medium"
-                      : isActive
+                  className={`font-body text-ds-body-sm ${isDone
+                    ? "text-success font-medium"
+                    : isActive
                       ? "text-brand font-semibold"
                       : "text-n-400"
-                  }`}
+                    }`}
                 >
                   {step.label}
                 </span>
@@ -1091,9 +1122,8 @@ function CompetitorTable({ scores }: { scores: ScoreItem[] }) {
             {["Product", "LQS", "CTR", "CVR", "Rating", "RPI"].map((h, i) => (
               <th
                 key={h}
-                className={`px-3 sm:px-4 py-3 font-display font-semibold text-ds-caption text-n-500 uppercase tracking-wide ${
-                  i === 0 ? "text-left" : i === 5 ? "text-right" : "text-center"
-                }`}
+                className={`px-3 sm:px-4 py-3 font-display font-semibold text-ds-caption text-n-500 uppercase tracking-wide ${i === 0 ? "text-left" : i === 5 ? "text-right" : "text-center"
+                  }`}
               >
                 {h}
               </th>
@@ -1106,9 +1136,8 @@ function CompetitorTable({ scores }: { scores: ScoreItem[] }) {
             return (
               <tr
                 key={item.label}
-                className={`border-b border-n-border last:border-0 ${
-                  isTarget ? "bg-brand-light" : "hover:bg-n-50"
-                }`}
+                className={`border-b border-n-border last:border-0 ${isTarget ? "bg-brand-light" : "hover:bg-n-50"
+                  }`}
               >
                 <td className="px-3 sm:px-4 py-3 max-w-[160px] sm:max-w-[240px]">
                   <div className="flex items-center gap-2">
@@ -1118,9 +1147,8 @@ function CompetitorTable({ scores }: { scores: ScoreItem[] }) {
                       </span>
                     )}
                     <span
-                      className={`font-body text-ds-body-sm truncate ${
-                        isTarget ? "font-semibold text-n-900" : "text-n-600"
-                      }`}
+                      className={`font-body text-ds-body-sm truncate ${isTarget ? "font-semibold text-n-900" : "text-n-600"
+                        }`}
                     >
                       {item.title}
                     </span>
@@ -1271,7 +1299,7 @@ export default function FreeScorePage() {
     Math.round(
       ((feedback?.executive_summary?.gap_to_leader ?? 0) /
         (feedback?.executive_summary?.best_competitor ?? 1)) *
-        100
+      100
     )
   );
 
@@ -1313,7 +1341,7 @@ export default function FreeScorePage() {
         {/* ── Listing meta ── */}
         <div className="mt-2 flex flex-wrap items-center gap-2 text-ds-body-sm font-body">
           <span className="rounded-full bg-n-200 px-2.5 py-0.5 text-ds-caption font-semibold text-n-700">
-            Electronics
+            {getCategory(target?.title)}
           </span>
           <span className="text-n-400 break-all">
             {target?.asin ? `amazon.in/dp/${target.asin}` : "amazon.in/dp/…"}
