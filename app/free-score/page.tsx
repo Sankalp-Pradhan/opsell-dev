@@ -812,11 +812,11 @@ const getCategory = (title?: string) => {
 
 // ── Loader steps ──────────────────────────────────────────────────────────────
 const LOADER_STEPS = [
-  { label: "Fetching listing data from Amazon", duration: 1800 },
-  { label: "Analysing title & bullet points", duration: 1600 },
+  { label: "Fetching listing data from Amazon", duration: 2000 },
+  { label: "Analysing title & bullet points", duration: 2400 },
   { label: "Scoring CTR & CVR signals", duration: 1400 },
-  { label: "Benchmarking against competitors", duration: 1500 },
-  { label: "Calculating Revenue Potential Index", duration: 1200 },
+  { label: "Benchmarking against competitors", duration: 2400 },
+  { label: "Calculating Revenue Potential Index", duration: 1800 },
   { label: "Generating priority action plan", duration: 1000 },
 ];
 
@@ -834,7 +834,7 @@ function FullPageLoader() {
   const progress = Math.round((currentStep / (LOADER_STEPS.length - 1)) * 100);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-n-50 font-body">
+    <div className="fixed md:top-10 inset-0 z-50 flex flex-col items-center justify-center bg-n-50 font-body">
       {/* Background subtle grid */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -1320,7 +1320,7 @@ export default function FreeScorePage() {
   const isLoading = !data;
 
   return (
-    <div className="min-h-screen bg-n-50 font-body pb-16">
+    <div className="min-h-screen  bg-n-50 font-body pb-16 pt-10">
 
       {/* ── Live pill ── */}
       <div className="flex justify-center pt-6 sm:pt-8 px-4">
