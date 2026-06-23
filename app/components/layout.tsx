@@ -20,6 +20,7 @@ export default function LayoutWrapper({
   || pathname.startsWith("/competitor-analysis-preview" )
   || pathname.startsWith("/keyword-gap" )
   || pathname.startsWith("/keyword-gap-preview" )
+  || pathname.startsWith("/lqs-score" )
 
   return (
     <>
