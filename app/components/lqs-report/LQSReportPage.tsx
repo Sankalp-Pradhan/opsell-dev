@@ -12,12 +12,14 @@ import Section11MediumLongTerm from "./Section11MediumLongTerm";
 import Section12DimensionExplorer from "./Section12DimensionExplorer";
 import Section13ListingAudit from "./Section13ListingAudit";
 import { LQSApiResponse, LQSResultEntry } from "@/app/(lqs-score)/types/api";
+import OpportunitySummarySection from "./section14";
 
 interface Props {
   data: LQSApiResponse;
+  asin: string;
 }
 
-export default function LQSReportPage({ data }: Props) {
+export default function LQSReportPage({ data, asin }: Props) {
   const target: LQSResultEntry = data.results.find((r) => r.label === "TARGET")!;
 
   return (
@@ -44,6 +46,7 @@ export default function LQSReportPage({ data }: Props) {
           <Section12DimensionExplorer breakdown={target.dimension_breakdown} />
         )}
         <Section13ListingAudit title={target.title} flags={target.flags ?? []} />
+        <OpportunitySummarySection data={data} asin={asin} />
       </div>
     </main>
   );
