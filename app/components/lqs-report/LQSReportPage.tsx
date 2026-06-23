@@ -11,6 +11,7 @@ import Section10Strengths from "./Section10Strengths";
 import Section11MediumLongTerm from "./Section11MediumLongTerm";
 import Section12DimensionExplorer from "./Section12DimensionExplorer";
 import Section13ListingAudit from "./Section13ListingAudit";
+import TextEnhancementCTASection from "./TextEnhancementCTASection";
 import { LQSApiResponse, LQSResultEntry } from "@/app/(lqs-score)/types/api";
 import OpportunitySummarySection from "./section14";
 
@@ -47,7 +48,9 @@ export default function LQSReportPage({ data, asin }: Props) {
         )}
         <Section13ListingAudit title={target.title} flags={target.flags ?? []} />
         <OpportunitySummarySection data={data} asin={asin} />
-      </div>
+        
+        
+              </div>
     </main>
   );
 }
