@@ -13,7 +13,13 @@ export default function LayoutWrapper({
 }) {
   const pathname = usePathname();
 
-  const hideLayout = pathname.startsWith("/dashboard");
+  const hideLayout =
+   pathname.startsWith("/dashboard") 
+  || pathname.startsWith("/competitor-analysis" )
+  || pathname.startsWith("/competitor-analysis-preview" )
+  || pathname.startsWith("/competitor-analysis-preview" )
+  || pathname.startsWith("/keyword-gap" )
+  || pathname.startsWith("/keyword-gap-preview" )
 
   return (
     <>

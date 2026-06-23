@@ -3,7 +3,7 @@
 import { Toaster, toast } from "react-hot-toast";
 import { useState, useEffect, useRef } from "react";
 
-// ── Logo ──────────────────────────────────────────────────────────────────────
+// -- Logo ----------------------------------------------------------------------
 function OpsellLogo() {
   return (
     <div className="flex items-center gap-2">
@@ -24,7 +24,7 @@ function OpsellLogo() {
   );
 }
 
-// ── Hamburger (mobile) ────────────────────────────────────────────────────────
+// -- Hamburger (mobile) --------------------------------------------------------
 function Hamburger({ open, onClick }: { open: boolean; onClick: () => void }) {
   return (
     <button
@@ -48,7 +48,7 @@ function Hamburger({ open, onClick }: { open: boolean; onClick: () => void }) {
   );
 }
 
-// ── Navbar ────────────────────────────────────────────────────────────────────
+// -- Navbar --------------------------------------------------------------------
 const NAV_LINKS = ["Free Score", "How it works", "Product", "Platforms", "Pricing", "Security"];
 
 function Navbar() {
@@ -65,8 +65,8 @@ function Navbar() {
     <>
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${scrolled || menuOpen
-            ? "bg-white/95 backdrop-blur-md border-b border-[#E2E4E8] shadow-[0_1px_2px_rgba(15,17,20,0.06)]"
-            : "bg-white/80 backdrop-blur-sm"
+          ? "bg-white/95 backdrop-blur-md border-b border-[#E2E4E8] shadow-[0_1px_2px_rgba(15,17,20,0.06)]"
+          : "bg-white/80 backdrop-blur-sm"
           }`}
       >
         <nav className="max-w-[1152px] mx-auto px-4 sm:px-6 h-[64px] flex items-center justify-between gap-4">
@@ -123,7 +123,7 @@ function Navbar() {
   );
 }
 
-// ── Live pill ─────────────────────────────────────────────────────────────────
+// -- Live pill -----------------------------------------------------------------
 function LivePill() {
   const [count, setCount] = useState(23);
 
@@ -149,12 +149,16 @@ function LivePill() {
   );
 }
 
-// ── URL Card ──────────────────────────────────────────────────────────────────
+// -- URL Card ------------------------------------------------------------------
 function UrlCard() {
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  function extractAsin(amazonUrl: string): string {
+    const match = amazonUrl.match(/\/dp\/([A-Z0-9]{10})/);
+    return match?.[1] ?? amazonUrl; // fallback: pass raw input
+  }
 
   // const handleSubmit = () => {
   //   if (!url.trim()) {
@@ -185,7 +189,9 @@ function UrlCard() {
 
     localStorage.removeItem("opsellResult");
     localStorage.setItem("pendingAmazonUrl", url);
-    window.location.href = "/sign-up";
+    // In UrlCard's handleSubmit:
+    window.location.href = `/competitor-analysis?asin=${extractAsin(url)}`;
+
   };
 
 
@@ -238,7 +244,7 @@ function UrlCard() {
   );
 }
 
-// ── Score badges ──────────────────────────────────────────────────────────────
+// -- Score badges --------------------------------------------------------------
 const BADGES = [
   { key: "A9", label: "Amazon ranking", bg: "#5046E5" },
   { key: "Rufus", label: "AI buyer intent", bg: "#5046E5" },
@@ -268,7 +274,7 @@ function ScoreBadges() {
   );
 }
 
-// ── Hero ──────────────────────────────────────────────────────────────────────
+// -- Hero ----------------------------------------------------------------------
 function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-[80px] pb-16 px-4 sm:px-6 overflow-hidden">
@@ -334,7 +340,7 @@ function Hero() {
   );
 }
 
-// ── Page root ─────────────────────────────────────────────────────────────────
+// -- Page root -----------------------------------------------------------------
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-[#0F1114] antialiased">

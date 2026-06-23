@@ -5,7 +5,7 @@ import { Check, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { CSVIcon, ShopifyIcon, WooCommerceIcon } from "./brandIcons";
 
-// ─── Shared hook ──────────────────────────────────────────────────────────────
+// --- Shared hook --------------------------------------------------------------
 
 const useLoop = (duration: number, active: boolean) => {
   const [cycle, setCycle] = useState(0);
@@ -17,7 +17,7 @@ const useLoop = (duration: number, active: boolean) => {
   return cycle;
 };
 
-// ─── Card shell ───────────────────────────────────────────────────────────────
+// --- Card shell ---------------------------------------------------------------
 // Consistent padding (p-6 = 24px), border, shadow across all 4 mockups
 
 const Card = ({ children }: { children: React.ReactNode }) => (
@@ -49,7 +49,7 @@ const CardHeader = ({
   </div>
 );
 
-// ─── Step 1: Connect ──────────────────────────────────────────────────────────
+// --- Step 1: Connect ----------------------------------------------------------
 
 const StepConnect = ({ inView }: { inView: boolean }) => {
   const cycle = useLoop(6000, inView);
@@ -125,7 +125,7 @@ const StepConnect = ({ inView }: { inView: boolean }) => {
   );
 };
 
-// ─── Step 2: Analyze ──────────────────────────────────────────────────────────
+// --- Step 2: Analyze ----------------------------------------------------------
 
 const StepAnalyze = ({ inView }: { inView: boolean }) => {
   const cycle = useLoop(7000, inView);
@@ -204,7 +204,7 @@ const StepAnalyze = ({ inView }: { inView: boolean }) => {
   );
 };
 
-// ─── Step 3: Recommend ────────────────────────────────────────────────────────
+// --- Step 3: Recommend --------------------------------------------------------
 
 const StepRecommend = ({ inView }: { inView: boolean }) => {
   const cycle = useLoop(7000, inView);
@@ -287,7 +287,7 @@ const StepRecommend = ({ inView }: { inView: boolean }) => {
   );
 };
 
-// ─── Step 4: Growth ───────────────────────────────────────────────────────────
+// --- Step 4: Growth -----------------------------------------------------------
 
 const StepGrowth = ({ inView }: { inView: boolean }) => {
   const cycle = useLoop(7000, inView);
@@ -364,7 +364,7 @@ const StepGrowth = ({ inView }: { inView: boolean }) => {
   );
 };
 
-// ─── Export ───────────────────────────────────────────────────────────────────
+// --- Export -------------------------------------------------------------------
 
 export const StepMockup = ({
   step,
