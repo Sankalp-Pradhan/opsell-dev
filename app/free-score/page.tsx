@@ -3,7 +3,7 @@
 
 // import { useState, useEffect } from "react";
 
-// // ── Loader steps ──────────────────────────────────────────────────────────────
+// // -- Loader steps --------------------------------------------------------------
 // const LOADER_STEPS = [
 //   { label: "Fetching listing data from Amazon", duration: 1800 },
 //   { label: "Analysing title & bullet points", duration: 1600 },
@@ -129,7 +129,7 @@
 //   );
 // }
 
-// // ── Skeleton shimmer ──────────────────────────────────────────────────────────
+// // -- Skeleton shimmer ----------------------------------------------------------
 // function Skeleton({ className }: { className?: string }) {
 //   return (
 //     <div className={`rounded-md bg-n-200 overflow-hidden relative ${className}`}>
@@ -187,7 +187,7 @@
 //   );
 // }
 
-// // ── Radial arc gauge ──────────────────────────────────────────────────────────
+// // -- Radial arc gauge ----------------------------------------------------------
 // function ArcGauge({ value, label, sub }: { value: number; label: string; sub: string }) {
 //   const circumference = Math.PI * 28;
 //   const clamped = Math.min(100, Math.max(0, value));
@@ -223,7 +223,7 @@
 //   );
 // }
 
-// // ── Impact badge ─────────────────────────────────────────────────────────────
+// // -- Impact badge -------------------------------------------------------------
 // function ImpactBadge({ level }: { level: "high" | "medium" | "strength" }) {
 //   const map = {
 //     high: { label: "High Impact", bg: "bg-error-light", text: "text-error" },
@@ -238,7 +238,7 @@
 //   );
 // }
 
-// // ── Finding card ─────────────────────────────────────────────────────────────
+// // -- Finding card -------------------------------------------------------------
 // function FindingCard({
 //   dot, title, body, impact,
 // }: {
@@ -260,7 +260,7 @@
 //   );
 // }
 
-// // ── Fix row ───────────────────────────────────────────────────────────────────
+// // -- Fix row -------------------------------------------------------------------
 // function FixRow({ num, title, barW, lift }: { num: string; title: string; barW: string; lift?: number }) {
 //   return (
 //     <div className="rounded-lg border border-n-border bg-white px-4 sm:px-5 py-4 shadow-elev-1">
@@ -278,7 +278,7 @@
 //   );
 // }
 
-// // ── Competitor table ──────────────────────────────────────────────────────────
+// // -- Competitor table ----------------------------------------------------------
 // function CompetitorTable({ scores }: { scores: Record<string, any> }) {
 //   return (
 //     <div className="overflow-x-auto rounded-lg border border-n-border bg-white shadow-elev-1 -mx-4 sm:mx-0">
@@ -332,7 +332,7 @@
 //   );
 // }
 
-// // ── Error screen ──────────────────────────────────────────────────────────────
+// // -- Error screen --------------------------------------------------------------
 // function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => void }) {
 //   let friendlyMessage = message;
 //   try {
@@ -393,7 +393,7 @@
 //   );
 // }
 
-// // ── Main page ─────────────────────────────────────────────────────────────────
+// // -- Main page -----------------------------------------------------------------
 // export default function FreeScorePage() {
 //   const [data, setData] = useState<any>(null);
 //   const [isFetching, setIsFetching] = useState(true);
@@ -453,7 +453,7 @@
 //     loadData();
 //   }, []);
 
-//   // ── Derived values ──────────────────────────────────────────────────────────
+//   // -- Derived values ----------------------------------------------------------
 //   // const target = data?.scores?.TARGET;
 //   const target = data?.scores?.find((s: any) => s.label === "TARGET");
 
@@ -486,7 +486,7 @@
 //   return (
 //     <div className="min-h-screen bg-n-50 font-body pb-16">
 
-//       {/* ── Live pill ── */}
+//       {/* -- Live pill -- */}
 //       <div className="flex justify-center pt-6 sm:pt-8 px-4">
 //         <div className="flex items-center gap-2 rounded-full bg-success-light border border-success/20 px-3 sm:px-4 py-1.5">
 //           <span className="h-2 w-2 rounded-full bg-success animate-pulse shrink-0" />
@@ -496,13 +496,13 @@
 //         </div>
 //       </div>
 
-//       {/* ── Score another listing link ── */}
+//       {/* -- Score another listing link -- */}
 //       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
 //         <a href="#" className="font-body text-ds-body text-brand hover:underline">
 //           Score another listing
 //         </a>
 
-//         {/* ── Listing meta ── */}
+//         {/* -- Listing meta -- */}
 //         <div className="mt-2 flex flex-wrap items-center gap-2 text-ds-body-sm font-body">
 //           <span className="rounded-full bg-n-200 px-2.5 py-0.5 text-ds-caption font-semibold text-n-700">
 //             Electronics
@@ -527,7 +527,7 @@
 //           )}
 //         </div>
 
-//         {/* ── Product title ── */}
+//         {/* -- Product title -- */}
 //         {isLoading ? (
 //           <Skeleton className="mt-3 h-8 w-3/4" />
 //         ) : (
@@ -537,7 +537,7 @@
 //         )}
 //       </div>
 
-//       {/* ── Score cards ── */}
+//       {/* -- Score cards -- */}
 //       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
 //         <div className="flex gap-2 sm:gap-3">
 //           {isLoading ? (
@@ -552,7 +552,7 @@
 //         </div>
 //       </div>
 
-//       {/* ── Revenue leak banner ── */}
+//       {/* -- Revenue leak banner -- */}
 //       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
 //         <div className="rounded-xl bg-n-900 px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 //           <div>
@@ -575,7 +575,7 @@
 //         </div>
 //       </div>
 
-//       {/* ── RPI ── */}
+//       {/* -- RPI -- */}
 //       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
 //         <div className="flex items-center justify-between rounded-lg border border-n-border bg-white px-4 sm:px-5 py-3 shadow-elev-1">
 //           <span className="font-body text-ds-body text-n-600">Revenue Potential Index (RPI)</span>
@@ -587,13 +587,13 @@
 //         </div>
 //       </div>
 
-//       {/* ── Competitor table ── */}
+//       {/* -- Competitor table -- */}
 //       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
 //         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3">Competitor Comparison</h2>
 //         {isLoading ? <Skeleton className="h-48 w-full" /> : <CompetitorTable scores={data?.scores ?? {}} />}
 //       </div>
 
-//       {/* ── What we found ── */}
+//       {/* -- What we found -- */}
 //       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
 //         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3 sm:mb-4">What we found</h2>
 //         <div className="flex flex-col gap-3 w-full">
@@ -607,7 +607,7 @@
 //         </div>
 //       </div>
 
-//       {/* ── Top priority card ── */}
+//       {/* -- Top priority card -- */}
 //       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
 //         <div className="rounded-xl border border-brand/30 bg-brand-light px-4 sm:px-5 py-5">
 //           <div className="flex items-center gap-2 mb-2">
@@ -628,7 +628,7 @@
 //         </div>
 //       </div>
 
-//       {/* ── More fixes ── */}
+//       {/* -- More fixes -- */}
 //       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
 //         <h2 className="font-display font-bold text-ds-h2 text-n-900">More fixes for this listing</h2>
 //         <p className="font-body text-ds-body-sm text-n-400 mb-4 mt-0.5">Ranked by estimated revenue impact</p>
@@ -649,7 +649,7 @@
 //         </div>
 //       </div>
 
-//       {/* ── Upsell card ── */}
+//       {/* -- Upsell card -- */}
 //       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
 //         <div className="rounded-2xl bg-brand-light border border-brand/10 px-6 sm:px-10 py-10 sm:py-12 text-center">
 //           <p className="font-display text-lg sm:text-[20px] font-bold text-n-900 leading-snug mb-6 sm:mb-7">
@@ -670,7 +670,7 @@
 //         </div>
 //       </div>
 
-//       {/* ── Fix modal ── */}
+//       {/* -- Fix modal -- */}
 //       {showFixModal && (
 //         <div
 //           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"
@@ -723,7 +723,7 @@
 
 import { useState, useEffect } from "react";
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+// -- Types ---------------------------------------------------------------------
 interface ScoreItem {
   label: string;
   title: string;
@@ -810,7 +810,7 @@ const getCategory = (title?: string) => {
 };
 
 
-// ── Loader steps ──────────────────────────────────────────────────────────────
+// -- Loader steps --------------------------------------------------------------
 const LOADER_STEPS = [
   { label: "Fetching listing data from Amazon", duration: 2000 },
   { label: "Analysing title & bullet points", duration: 2400 },
@@ -1112,7 +1112,7 @@ function FixRow({
   );
 }
 
-// ── Competitor table — accepts ScoreItem[] ────────────────────────────────────
+// -- Competitor table — accepts ScoreItem[] ------------------------------------
 function CompetitorTable({ scores }: { scores: ScoreItem[] }) {
   return (
     <div className="overflow-x-auto rounded-lg border border-n-border bg-white shadow-elev-1 -mx-4 sm:mx-0">
@@ -1238,7 +1238,7 @@ function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => voi
   );
 }
 
-// ── Main page ─────────────────────────────────────────────────────────────────
+// -- Main page -----------------------------------------------------------------
 export default function FreeScorePage() {
   const [data, setData] = useState<ApiResult | null>(null);
   const [isFetching, setIsFetching] = useState(true);
@@ -1290,7 +1290,7 @@ export default function FreeScorePage() {
     loadData();
   }, []);
 
-  // ── Derived values ──────────────────────────────────────────────────────────
+  // -- Derived values ----------------------------------------------------------
   // scores is an array — find TARGET by label
   const target = data?.scores?.find((s) => s.label === "TARGET");
   const feedback = data?.feedback;
@@ -1322,7 +1322,7 @@ export default function FreeScorePage() {
   return (
     <div className="min-h-screen  bg-n-50 font-body pb-16 pt-10">
 
-      {/* ── Live pill ── */}
+      {/* -- Live pill -- */}
       <div className="flex justify-center pt-6 sm:pt-8 px-4">
         <div className="flex items-center gap-2 rounded-full bg-success-light border border-success/20 px-3 sm:px-4 py-1.5">
           <span className="h-2 w-2 rounded-full bg-success animate-pulse shrink-0" />
@@ -1332,13 +1332,13 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── Score another listing ── */}
+      {/* -- Score another listing -- */}
       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
         <a href="#" className="font-body text-ds-body text-brand hover:underline">
           Score another listing
         </a>
 
-        {/* ── Listing meta ── */}
+        {/* -- Listing meta -- */}
         <div className="mt-2 flex flex-wrap items-center gap-2 text-ds-body-sm font-body">
           <span className="rounded-full bg-n-200 px-2.5 py-0.5 text-ds-caption font-semibold text-n-700">
             {getCategory(target?.title)}
@@ -1363,7 +1363,7 @@ export default function FreeScorePage() {
           )}
         </div>
 
-        {/* ── Product title ── */}
+        {/* -- Product title -- */}
         {isLoading ? (
           <Skeleton className="mt-3 h-8 w-3/4" />
         ) : (
@@ -1373,7 +1373,7 @@ export default function FreeScorePage() {
         )}
       </div>
 
-      {/* ── Score gauges ── */}
+      {/* -- Score gauges -- */}
       <div className="mx-auto mt-5 sm:mt-6 max-w-4xl px-4 sm:px-6">
         <div className="flex gap-2 sm:gap-3">
           {isLoading ? (
@@ -1404,7 +1404,7 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── Revenue leak banner ── */}
+      {/* -- Revenue leak banner -- */}
       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
         <div className="rounded-xl bg-n-900 px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
@@ -1429,7 +1429,7 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── RPI ── */}
+      {/* -- RPI -- */}
       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
         <div className="flex items-center justify-between rounded-lg border border-n-border bg-white px-4 sm:px-5 py-3 shadow-elev-1">
           <span className="font-body text-ds-body text-n-600">Revenue Potential Index (RPI)</span>
@@ -1441,7 +1441,7 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── Competitor table ── */}
+      {/* -- Competitor table -- */}
       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3">Competitor Comparison</h2>
         {isLoading ? (
@@ -1451,7 +1451,7 @@ export default function FreeScorePage() {
         )}
       </div>
 
-      {/* ── What we found ── */}
+      {/* -- What we found -- */}
       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
         <h2 className="font-display font-bold text-ds-h2 text-n-900 mb-3 sm:mb-4">What we found</h2>
         <div className="flex flex-col gap-3 w-full">
@@ -1475,7 +1475,7 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── Top priority card ── */}
+      {/* -- Top priority card -- */}
       <div className="mx-auto mt-4 sm:mt-5 max-w-4xl px-4 sm:px-6">
         <div className="rounded-xl border border-brand/30 bg-brand-light px-4 sm:px-5 py-5">
           <div className="flex items-center gap-2 mb-2">
@@ -1507,7 +1507,7 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── More fixes ── */}
+      {/* -- More fixes -- */}
       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
         <h2 className="font-display font-bold text-ds-h2 text-n-900">More fixes for this listing</h2>
         <p className="font-body text-ds-body-sm text-n-400 mb-4 mt-0.5">
@@ -1534,28 +1534,28 @@ export default function FreeScorePage() {
         </div>
       </div>
 
-      {/* ── Upsell card ── */}
+      {/* -- Upsell card -- */}
       <div className="mx-auto mt-7 sm:mt-8 max-w-4xl px-4 sm:px-6">
         <div className="rounded-2xl bg-brand-light border border-brand/10 px-6 sm:px-10 py-10 sm:py-12 text-center">
           <p className="font-display text-lg sm:text-[20px] font-bold text-n-900 leading-snug mb-6 sm:mb-7">
             {(feedback?.priority_actions?.length ?? 0) > 5
               ? `${feedback!.priority_actions.length - 5} more fixes are waiting.`
               : "More fixes are waiting."}{" "}
-            Connect your
+            
             <br />
-            Amazon account to unlock them all.
+            Start Optimizing your listings
           </p>
           <button
             onClick={() => (window.location.href = "/dashboard")}
             className="w-full sm:w-auto bg-brand text-white border-none rounded-xl px-8 sm:px-9 py-4 font-display font-semibold text-ds-body cursor-pointer shadow-[0_4px_16px_rgba(80,70,229,0.35)] hover:bg-brand-dark transition-colors"
           >
-            Connect my account
+            Go to dashboard
           </button>
           <p className="mt-4 font-body text-ds-caption text-n-400">Setup takes under 4 minutes</p>
         </div>
       </div>
 
-      {/* ── Fix modal ── */}
+      {/* -- Fix modal -- */}
       {showFixModal && (
         <div
           className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"

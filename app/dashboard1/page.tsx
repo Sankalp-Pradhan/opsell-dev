@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+// -- Types ---------------------------------------------------------------------
 interface IconProps {
   d: string;
   size?: number;
@@ -31,7 +31,7 @@ interface NavGroup {
   items: NavItem[];
 }
 
-// ── Icons ─────────────────────────────────────────────────────────────────────
+// -- Icons ---------------------------------------------------------------------
 const Icon = ({ d, size = 16, strokeWidth = 1.7, fill = "none", stroke = "currentColor" }: IconProps) => (
   <svg
     width={size}
@@ -90,10 +90,10 @@ const LockIcon = () => (
 
 
 
-// ── Data ──────────────────────────────────────────────────────────────────────
+// -- Data ----------------------------------------------------------------------
 const barData: number[] = [38, 55, 42, 68, 72, 85, 60, 91, 78, 95, 65, 80];
 
-// ── StatCard ──────────────────────────────────────────────────────────────────
+// -- StatCard ------------------------------------------------------------------
 function StatCard({ locked = false, value, label, trend }: StatCardProps) {
   return (
     <div className="relative flex-1 min-w-0 bg-white border border-n-border rounded-lg p-5 shadow-elev-1">
@@ -126,7 +126,7 @@ function StatCard({ locked = false, value, label, trend }: StatCardProps) {
   );
 }
 
-// ── Main Dashboard ────────────────────────────────────────────────────────────
+// -- Main Dashboard ------------------------------------------------------------
 export default function OpsellDashboard() {
   const [bannerVisible, setBannerVisible] = useState<boolean>(true);
   const [activeNav, setActiveNav] = useState<string>("Dashboard");
@@ -165,7 +165,7 @@ export default function OpsellDashboard() {
       className="flex h-screen bg-n-50 font-body text-ds-body text-n-900 overflow-hidden cursor-pointer"
       onClick={() => router.push("/pricing")}
     >
-      {/* ── Sidebar ── */}
+      {/* -- Sidebar -- */}
       <aside className="w-60 min-w-[240px] bg-white border-r border-n-border flex flex-col pb-4 z-10">
 
         {/* Logo */}
@@ -230,7 +230,7 @@ export default function OpsellDashboard() {
         </div>
       </aside>
 
-      {/* ── Main ── */}
+      {/* -- Main -- */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
 
         {/* Topbar */}
