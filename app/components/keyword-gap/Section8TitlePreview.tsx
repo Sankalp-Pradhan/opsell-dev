@@ -54,7 +54,7 @@ export default function TitlePreviewSection({ data }: { data: KeywordGapData }) 
   return (
     <Card className="p-6">
       <div className="mb-5">
-        <SectionLabel>AI-generated output · most impressive for demos</SectionLabel>
+        
         <h2 className="text-ds-h2 font-display text-n-800">
           Optimized title preview
         </h2>
