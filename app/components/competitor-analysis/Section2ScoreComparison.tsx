@@ -132,13 +132,6 @@ export default function ScoreComparisonTable({
                 </th>
               ))}
 
-              <th className="w-24 px-4 py-3 text-left text-n-500 font-medium">
-                CTR
-              </th>
-
-              <th className="w-32 px-4 py-3 text-left text-n-500 font-medium">
-                Revenue
-              </th>
             </tr>
           </thead>
 
@@ -219,15 +212,6 @@ export default function ScoreComparisonTable({
                       );
                     })}
 
-                    <td className="px-4 py-3.5 text-n-700">
-                      {row.projected_ctr ||
-                        "—"}
-                    </td>
-
-                    <td className="px-4 py-3.5 font-medium text-n-800">
-                      {row.gmv_estimate ||
-                        "—"}
-                    </td>
                   </tr>
                 );
               }

@@ -16,13 +16,15 @@
 export const API_CONFIG = {
   baseUrl: process.env.API_BASE_URL ?? "",
   endpoints: {
-    lqs:        process.env.API_LQS_ENDPOINT        ?? "/lqs",
-    competitor: process.env.API_COMPETITOR_ENDPOINT ?? "/competitors",
-    keywordGap: process.env.API_KEYWORD_GAP_ENDPOINT ?? "/keyword-gap",
+    lqs:                 process.env.API_LQS_ENDPOINT                  ?? "/lqs",
+    competitor:          process.env.API_COMPETITOR_ENDPOINT           ?? "/competitors",
+    keywordGap:          process.env.API_KEYWORD_GAP_ENDPOINT          ?? "/keyword-gap",
+    textEnhancement:     process.env.API_TEXT_ENHANCEMENT_ENDPOINT     ?? "/text-enhancement",
   },
   apiKeys: {
-    lqs:        process.env.API_KEY_LQS        ?? "",
-    competitor: process.env.API_KEY_COMPETITOR ?? "",
-    keywordGap: process.env.API_KEY_KEYWORD_GAP ?? "",
+    lqs:                 process.env.API_KEY_LQS               ?? "",
+    competitor:          process.env.API_KEY_COMPETITOR        ?? "",
+    keywordGap:          process.env.API_KEY_KEYWORD_GAP       ?? "",
+    textEnhancement:     process.env.API_KEY_TEXT_ENHANCEMENT  ?? "",
   },
 } as const;

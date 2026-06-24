@@ -6,7 +6,7 @@ import type { LQSApiResponse } from "../../(competitor-analysis)/types/api";
 
 async function LQSReportContent({ asin }: { asin: string }) {
   const data = await fetchLQSData(asin) as LQSApiResponse;
-  return <LQSReportPage data={data} />;
+  return <LQSReportPage data={data} asin={asin} />;
 }
 
 export default async function LQSReportRoute({
