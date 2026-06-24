@@ -55,7 +55,6 @@ export default function TextEnhancementReportPage({ data, asin }: Props) {
         {/* <Section7KeywordOptimization keywordsAdded={data.variant_a.keywords_added} originalScores={data.original_scores} /> */}
         <Section8ContentEnhancements breakdown={data.impact.breakdown} />
         <Section9ImpactForecast impact={data.impact} />
-        <Section10ImpactBreakdown breakdown={data.impact.breakdown} />
         <Section11FinalOptimizedCopy hybrid={data.hybrid} />
         <Section12ImplementationChecklist
           hybrid={data.hybrid}
