@@ -66,13 +66,13 @@ export default function Section12ImplementationChecklist({
       <div className="space-y-3">
         {items.map((item, i) => (
           <div key={i} className="border border-n-border rounded-xl p-4 flex gap-4">
-            <div className="flex-shrink-0 flex items-start pt-0.5">
-              <input
-                type="checkbox"
-                className="w-5 h-5 rounded border-n-border text-emerald-600 cursor-pointer"
-                disabled
-              />
-            </div>
+              {/* <div className="flex-shrink-0 flex items-start pt-0.5">
+                <input
+                  type="checkbox"
+                  className="w-5 h-5 rounded border-n-border text-emerald-600 cursor-pointer"
+                  disabled
+                />
+              </div> */}
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
                 <h3 className="text-ds-body font-semibold text-n-900">
